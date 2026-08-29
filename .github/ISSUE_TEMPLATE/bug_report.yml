@@ -1,0 +1,57 @@
+name: Bug report
+description: Something in Inwardis isn't working the way it should.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please **search existing issues** first — add to one rather than
+        opening a duplicate. This repo is for feedback only; it has no product source.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: I imported a PostgreSQL schema and the foreign-key arrows pointed the wrong way…
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps so we can see it too.
+      placeholder: |
+        1. Open a Database Design project
+        2. Reverse-engineer connection "…"
+        3. …
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Inwardis version
+      description: Shown in the admin panel / About. Docker image tag is fine.
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: How are you running it?
+      options:
+        - On-premise (Docker)
+        - Hosted demo
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & OS
+      placeholder: e.g. Chrome 126 on Windows 11
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots / logs / anything else
+      description: Drag images in. For errors, the "Reference" id from the error toast helps a lot.

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 User manual & docs
+    url: https://inwardis.com/docs
+    about: Most "how do I…" questions are answered here (and in the app's ? Help panel).
+  - name: 💬 Discussions
+    url: https://github.com/inwardis/feedback/discussions
+    about: Questions, ideas, and show-and-tell — for anything that isn't a bug or a concrete request.
+  - name: 🔒 Security issue
+    url: https://inwardis.com/security
+    about: Please report vulnerabilities privately, not as a public issue.
