@@ -27,8 +27,9 @@ The core product, shipping at launch:
 - **Author your own templates** — a YAML DSL for domains, shapes, properties, and rules,
   including custom SVG shapes.
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
-- **Reverse engineering** — generate a model from a live **PostgreSQL, MySQL, SQL Server, or
-  Oracle** database.
+- **Database connectors** — PostgreSQL, MySQL, SQL Server, Oracle. They ship *switched off*: an
+  agent reading a schema dump builds a better model than reverse engineering does, so this is
+  opt-in for an administrator who wants it.
 - **Import** — OpenAPI/Swagger, JSON samples, Sparx EA (XMI), draw.io, Mermaid, CSV, Structurizr.
 - **Export** — SVG, PNG, JSON, YAML, Markdown, Mermaid, and ITL round-trip.
 - **Versioning** — Git-backed history, diffs, preview, restore, and remote push/merge.
@@ -36,7 +37,7 @@ The core product, shipping at launch:
   visibility.
 - **Accounts** — built-in auth with email MFA, plus optional OIDC single sign-on (Keycloak,
   Azure AD, …) for on-premise.
-- **AI-assisted modelling** — a built-in MCP server with **36 tools**: agents read the model
+- **AI-assisted modelling** — a built-in MCP server with **34 tools**: agents read the model
   layer by layer, follow incoming and outgoing relations, search names, types and notes across
   the workspace, create and correct elements, relations and views, lay out, render, import and
   export. Scoped, revocable API keys; every call rate-limited and audited.
