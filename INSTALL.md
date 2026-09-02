@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.5   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.6   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — *not optional*: login uses 6-digit codes sent by email, so a
    product that cannot send mail cannot log you in.
