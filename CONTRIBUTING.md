@@ -29,8 +29,9 @@ Silence isn't rejection — reactions keep an issue visible.
 
 ## Security
 
-**Do not** file security vulnerabilities as public issues. See
-[our security page](https://inwardis.com/security) for private disclosure.
+**Do not** file security vulnerabilities as public issues. Use
+[GitHub's private security advisory form](https://github.com/inwardis/feedback/security/advisories/new)
+— see [SECURITY.md](SECURITY.md).
 
 ## Code of conduct
 

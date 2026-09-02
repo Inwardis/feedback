@@ -37,7 +37,7 @@ The core product, shipping at launch:
   visibility.
 - **Accounts** — built-in auth with email MFA, plus optional OIDC single sign-on (Keycloak,
   Azure AD, …) for on-premise.
-- **AI-assisted modelling** — a built-in MCP server with **34 tools**: agents read the model
+- **AI-assisted modelling** — a built-in MCP server with **40+ tools**: agents read the model
   layer by layer, follow incoming and outgoing relations, search names, types and notes across
   the workspace, create and correct elements, relations and views, lay out, render, import and
   export. Scoped, revocable API keys; every call rate-limited and audited.

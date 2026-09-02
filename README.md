@@ -11,6 +11,8 @@ It runs on-premise via Docker; your data stays on your infrastructure.
 
 ## What's here
 
+- **[INSTALL.md](INSTALL.md)** — how to install Inwardis (Docker Compose, the three secrets,
+  email setup for login codes, every environment variable).
 - **[ROADMAP.md](ROADMAP.md)** — where the product is heading (available now / next / later).
 - **Issues** — [report a bug](https://github.com/inwardis/feedback/issues/new?template=bug_report.yml)
   or [request a feature](https://github.com/inwardis/feedback/issues/new?template=feature_request.yml).
