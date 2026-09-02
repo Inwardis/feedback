@@ -81,12 +81,14 @@ for trying it out, not for a team install.
 
 ## Environment variable reference
 
-Everything beyond the three secrets and mail is optional; defaults are production-sane.
+Everything beyond the three secrets, `INWARDIS_VERSION` and mail is optional; defaults are
+production-sane.
 
 ### Core
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.6`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
