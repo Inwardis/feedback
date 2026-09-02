@@ -20,13 +20,15 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.4   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.5   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — *not optional*: login uses 6-digit codes sent by email, so a
    product that cannot send mail cannot log you in.
 5. `docker load -i inwardis-bundle-<version>.tar.gz`, then
    `docker compose -f docker-compose.prod.yml up -d`
-6. Open `http://<host>:8080` and register — **the first account registered on a fresh install
+6. Verify the version took: `http://<host>:8080/actuator/info` must show the version you
+   pinned (a machine with older cached images can otherwise silently run the wrong one).
+7. Open `http://<host>:8080` and register — **the first account registered on a fresh install
    automatically has administrator rights** (there is no default username/password; you create
    the admin by being first). The MFA code arrives by email. Then install your license key
    under **Admin → License**.
