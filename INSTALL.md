@@ -13,8 +13,8 @@ fourth (`hocuspocus`), off by default.
 1. **Get a license key** — [a free 30-day trial](https://inwardis.com/trial.html) or a
    purchase. The email carries the key **and your personal download link** for the product
    bundle.
-2. **Download** `inwardis-bundle.tar.gz` from your personal link, and
-   `docker-compose.prod.yml` from the download page, into one directory.
+2. **Download** the bundle from your personal link — the filename carries the version, e.g.
+   `inwardis-bundle-1.0.0.tar.gz` — and `docker-compose.prod.yml` from the download page, into one directory.
 3. **Create a `.env` file** next to them with the three required secrets (below) **and the
    version you downloaded** — the compose file pins images by `INWARDIS_VERSION`, and it must
    match the bundle or `docker compose up` fails with *image not found*:
@@ -24,7 +24,7 @@ fourth (`hocuspocus`), off by default.
    ```
 4. **Set up email** (below) — *not optional*: login uses 6-digit codes sent by email, so a
    product that cannot send mail cannot log you in.
-5. `docker load -i inwardis-bundle.tar.gz`, then
+5. `docker load -i inwardis-bundle-<version>.tar.gz`, then
    `docker compose -f docker-compose.prod.yml up -d`
 6. Open `http://<host>:8080` and register — **the first account registered on a fresh install
    automatically has administrator rights** (there is no default username/password; you create
