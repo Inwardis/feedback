@@ -15,7 +15,13 @@ fourth (`hocuspocus`), off by default.
    bundle.
 2. **Download** `inwardis-bundle.tar.gz` from your personal link, and
    `docker-compose.prod.yml` from the download page, into one directory.
-3. **Create a `.env` file** next to them with the three required secrets (below).
+3. **Create a `.env` file** next to them with the three required secrets (below) **and the
+   version you downloaded** — the compose file pins images by `INWARDIS_VERSION`, and it must
+   match the bundle or `docker compose up` fails with *image not found*:
+
+   ```
+   INWARDIS_VERSION=1.0.0-rc.4   # ← the version from your download page / bundle filename
+   ```
 4. **Set up email** (below) — *not optional*: login uses 6-digit codes sent by email, so a
    product that cannot send mail cannot log you in.
 5. `docker load -i inwardis-bundle.tar.gz`, then
