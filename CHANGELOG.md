@@ -7,6 +7,28 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.13] - 2026-09-03
+
+### Added
+- `learn` gains the topic **project-knowledge**: how an agent keeps track of its own work on a
+  model inside the model — findings, decisions, rules, phases and questions as elements, when
+  to write each, how several agents share it, project notices as binding rules, and how to
+  start a session. Also a help page: *Keeping a Project's Knowledge*.
+
+- **VS Code extension 0.11.0** (bundled): the code-reference scan and CodeLens now show whether
+  each mark is *stale*, *fresh* or *unverified* against the element's verified-on date, using the
+  file's last commit date from git, and offer **Mark as verified** on a click.
+
+- **`project_brief`** (MCP) and `GET /api/v1/projects/{id}/brief`: the state of the work on a
+  project, computed from its knowledge elements — open findings, ideas, questions and proposed
+  decisions, phases by status with the latest, verification counts — as JSON and as Markdown.
+  Read it first in a session.
+
+- **Project knowledge kit**: *Create Project → Start from → Project knowledge kit* (also
+  `create_knowledge_kit` over MCP and `POST /api/v1/projects/knowledge-kit`) creates the three
+  projects the practice needs — Findings, Decisions & rules, Phases — each with a Board view and
+  its writing rules as a notice that every agent sees when it writes there.
+
 ## [1.0.0-rc.12] - 2026-09-03
 
 ### Added
