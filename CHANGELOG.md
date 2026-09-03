@@ -7,7 +7,7 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
-## [Unreleased]
+## [1.0.0-rc.11] - 2026-09-03
 
 ### Fixed
 - Adding a child element from the explorer while the **parent's** level was on screen also
