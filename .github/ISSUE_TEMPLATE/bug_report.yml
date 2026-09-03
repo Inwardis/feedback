@@ -23,7 +23,7 @@ body:
       description: Numbered steps so we can see it too.
       placeholder: |
         1. Open a Database Design project
-        2. Reverse-engineer connection "…"
+        2. Import the schema file "…"
         3. …
     validations:
       required: true
