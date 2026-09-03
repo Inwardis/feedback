@@ -7,6 +7,21 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.10] - 2026-09-03
+
+### Fixed
+- **What's new** in the Help panel opened "Unknown help page" — the release notes were not
+  packaged into the rc.9 image. They are now, and the build refuses to produce an image
+  without them.
+- **"Failed to create project"** on a fresh install said nothing about why. Error messages
+  from the server now reach you: with no license installed, the message says so and points
+  an administrator at Admin → License. The same applies to sharing and template-editing
+  errors.
+- The read-only refusal itself no longer claims a license "has expired" on an install that
+  never had one.
+- The **"No active license — read-only mode" banner** now appears after logging in, not only
+  after a page reload. On a fresh install it is the first thing an administrator sees.
+
 ## [1.0.0-rc.9] - 2026-09-03
 
 ### Added
