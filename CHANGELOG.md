@@ -7,6 +7,28 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [Unreleased]
+
+### Fixed
+- Adding a child element from the explorer while the **parent's** level was on screen also
+  drew the child beside its parent, as if it were a sibling — and saved it that way, so exports
+  showed it too. A new element is now placed only in the view that draws its parent's children;
+  drill into the parent to see it. Placing an element elsewhere on purpose is still done with
+  *Show on canvas*.
+- The window title and the top-left product name read "Inwardis Spike"; the leftover word is
+  gone.
+- **Downloads that stream** — the audit log CSV, the error log export, the workspace backup and
+  the docs export — failed after the first bytes with "Failed to export". The authenticated
+  session was lost on the second half of the response; it is kept now.
+- The compose file and the install guide now list the optional settings (email, MFA, feature
+  switches, limits, metrics, JVM) with a pointer to the full reference; the guide no longer
+  claims email is required to log in — email MFA is off by default.
+- **System health no longer reports DOWN because email is not configured.** An install without
+  `SMTP_HOST` shows the mail component as "not configured" and stays UP; the every-five-minutes
+  "System health is DOWN — check … database" audit rows stop. When something is really down,
+  the alert names the component and its error, is written once when it starts and once when it
+  clears, instead of on every check.
+
 ## [1.0.0-rc.10] - 2026-09-03
 
 ### Fixed
