@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.12   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.13   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -91,7 +91,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.12`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.13`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
