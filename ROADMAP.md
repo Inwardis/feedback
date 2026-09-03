@@ -27,9 +27,6 @@ The core product, shipping at launch:
 - **Author your own templates** — a YAML DSL for domains, shapes, properties, and rules,
   including custom SVG shapes.
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
-- **Database connectors** — PostgreSQL, MySQL, SQL Server, Oracle. They ship *switched off*: an
-  agent reading a schema dump builds a better model than reverse engineering does, so this is
-  opt-in for an administrator who wants it.
 - **Import** — OpenAPI/Swagger, JSON samples, Sparx EA (XMI), draw.io, Mermaid, CSV, Structurizr.
 - **Export** — SVG, PNG, JSON, YAML, Markdown, Mermaid, and ITL round-trip.
 - **Versioning** — Git-backed history, diffs, preview, restore, and remote push/merge.
@@ -69,6 +66,9 @@ Direction, not commitments — your feedback moves these up or down:
 - **Deeper Sparx EA (XMI) import** — more diagram types and dialect coverage, for teams migrating
   off EA.
 - **Embeds & living documentation** — diagrams that stay in sync inside your docs.
+- **Live database connectors** — reverse engineering straight from a PostgreSQL, MySQL,
+  SQL Server or Oracle connection. Held back from the initial release: an agent reading a
+  schema dump builds a better model than a connector does, so import the `.sql` file for now.
 - **Template marketplace** — share and discover community templates.
 - **Also on the list** — PDF export, issue-tracker integrations, additional UML diagram types
   from XMI, and internationalization.
