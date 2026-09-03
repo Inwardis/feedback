@@ -22,8 +22,9 @@ fourth (`hocuspocus`), off by default.
    ```
    INWARDIS_VERSION=1.0.0-rc.10   # ← the version from your download page / bundle filename
    ```
-4. **Set up email** (below) — *not optional*: login uses 6-digit codes sent by email, so a
-   product that cannot send mail cannot log you in.
+4. **Set up email** (below) — optional, recommended for a team install: invitations,
+   notifications and (if you turn it on) login codes go out by email. Login itself works
+   without it.
 5. `docker load -i inwardis-bundle-<version>.tar.gz`, then
    `docker compose -f docker-compose.prod.yml up -d`
 6. Verify the version took: `http://<host>:8080/actuator/info` must show the version you
@@ -48,11 +49,13 @@ tag, `docker compose up -d`.
 
 The compose file refuses to start without them — there are no insecure defaults in production.
 
-## Email setup — required for login
+## Email setup — optional, recommended
 
-Login and registration use **email MFA**: a 6-digit code is sent to the account's address.
-A fresh install with no working mail path stops at the first login screen. Two ways to
-provide one:
+The product sends email for **invitations**, **notifications** (license expiry, shares, system
+alerts to admins) and **login codes when email MFA is enabled** — it is off by default
+(`INWARDIS_AUTH_MFA_ENABLED=true` turns it on, and then a working mail path *is* required to
+log in). With no `SMTP_HOST` set, the product runs normally, the System page shows mail as
+*not configured*, and those emails are simply not sent. Two ways to provide a mail path:
 
 **A — your SMTP relay (production):** uncomment and set in the compose environment (or `.env`):
 
@@ -100,7 +103,8 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `SMTP_HOST` / `SMTP_PORT` | `localhost` / `1025` | Your mail relay (see **Email setup** above) |
+| `SMTP_HOST` / `SMTP_PORT` | unset (email off) / `1025` | Your mail relay (see **Email setup** above) |
+| `INWARDIS_AUTH_MFA_ENABLED` | `false` | Email 6-digit login codes — needs a working `SMTP_HOST` |
 | `SMTP_USERNAME` / `SMTP_PASSWORD` | empty | Relay credentials |
 | `SMTP_AUTH` / `SMTP_STARTTLS` | `false` / `false` | Enable for authenticated/TLS relays |
 | `NOTIFICATIONS_ENABLED` | `true` | In-app + email notifications |
