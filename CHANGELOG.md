@@ -7,6 +7,20 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.12] - 2026-09-03
+
+### Added
+- The **Issues** template (1.6) gains a project-knowledge vocabulary: **Decision, Invariant,
+  Rule, Phase, Question** with status, provenance and a verified-on date, and the relations
+  *Violates*, *Enforced In*, *Closed By* (cross-project) and *Supersedes*. Issues gain provenance
+  and verified-on too. Existing Issues projects pick the new types up automatically unless the template was
+  customised.
+
+- **Code references know when they went stale.** `resolve_elements` accepts, per mark, the date
+  the marked code last changed and answers *stale*, *fresh* or *unverified* against the
+  element's verified-on date. The C4 template (1.2) gains verified-on on systems, containers
+  and components.
+
 ## [1.0.0-rc.11] - 2026-09-03
 
 ### Fixed
