@@ -7,6 +7,12 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.17] - 2026-09-04
+
+### Changed
+- **Import from a published repository is offered under *Create Subproject* too.** The copy lands
+  beneath that project as a subproject; the wizard says where it will go.
+
 ## [1.0.0-rc.16] - 2026-09-04
 
 ### Added
