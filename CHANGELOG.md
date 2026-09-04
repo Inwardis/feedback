@@ -7,6 +7,29 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.14] - 2026-09-04
+
+### Fixed
+- **Remote git: a merge now updates the model itself.** *Fetch & Merge* in Git Settings, the merge
+  a push runs first, and a resolved remote conflict all apply the merged state to the project and
+  move its version. Previously only the repository moved: the canvas looked unchanged after
+  "Merged remote changes", and the next save silently reverted the incoming edit — locally and,
+  on the next push, on the remote. If the database update fails, the merge commit is rolled back
+  rather than left standing without its state.
+
+- **The first push to a new repository works from the Push button**, whether the provider left the
+  repository empty or created it with a README. Before, an empty repository failed with
+  "Pre-fetch failed" and a README-initialized one with "No common ancestor found"; the README case
+  is absorbed into history as documented, and a repository that already holds another model is
+  still refused. Fetch & Merge against unrelated history now says so instead of reporting an error.
+
+### Changed
+- **The project knowledge kit explains itself.** The create-project dialog says the kit is
+  optional and not a model — three boards for the work *on* a model — and when it is worth adding,
+  with a help link to a new manual section, *The kit: what it is, and when it is worth having*.
+  *Core Concepts* gains *Knowledge about the model*, and `create_knowledge_kit` says the same to
+  agents.
+
 ## [1.0.0-rc.13] - 2026-09-03
 
 ### Added
