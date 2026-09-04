@@ -7,7 +7,27 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
-## [1.0.0-rc.14] - 2026-09-04
+## [1.0.0-rc.16] - 2026-09-04
+
+### Added
+- **Import from a published repository.** A project another Inwardis instance pushed to git can
+  be imported from its URL — *Create Project → Start from → A published repository*, or
+  `import_git_repository` over MCP, or `POST /api/v1/import/git` — as a **new project with new
+  ids**: a copy, not a link. Nothing is configured to push back. A publication with subprojects
+  becomes a project with subprojects; references that point outside the imported publication are
+  dropped and counted, and a template this instance lacks is reported with its elements skipped
+  rather than imported as something else. Optional token (used once, never stored), branch and
+  subfolder.
+
+### Changed
+- The release image is now built on a Gradle base image, so building it no longer depends on
+  downloading Gradle during the build.
+
+## [1.0.0-rc.15] - 2026-09-04
+
+> rc.14 was tagged the same morning and never published — its image build failed on the build
+> infrastructure (a download timeout), not on the product. rc.15 is that release with the build
+> made tolerant of a slow mirror.
 
 ### Fixed
 - **Remote git: a merge now updates the model itself.** *Fetch & Merge* in Git Settings, the merge
