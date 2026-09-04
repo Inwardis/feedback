@@ -7,6 +7,29 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.20] - 2026-09-04
+
+> rc.18 and rc.19 were tagged the same afternoon and never published: their image builds refused
+> themselves at a new release check that needed a tool the build machine lacks. rc.20 is both of
+> them, with the check fixed.
+
+### Added
+- **Six general-purpose templates** — Org Chart, Capability Map, Concept Map, Requirements,
+  Risk Register and Business Model Canvas — the first built-ins with nothing software-specific in
+  them. Each is a hierarchy you can drill into plus the typed relations of its domain, and each
+  can reference elements in other models. The Templates help page lists when to reach for which.
+
+
+- **A test build beside every release.** Each version now also ships as `<version>-test`, a
+  build that trusts the *test* licensing key. The test environment's downloads page hands out
+  that build, so a trial or purchase made on the test site works in the copy you were told to
+  install. The licence page and `/actuator/info` say which build you are running; a test build
+  shows a clear banner.
+
+### Changed
+- **A licence key signed for another build is refused with a message that says so** — which key
+  this build trusts and which key signed yours — instead of a signature error from the JWT library.
+
 ## [1.0.0-rc.17] - 2026-09-04
 
 ### Changed
