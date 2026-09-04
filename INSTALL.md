@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.17   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.20   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -28,7 +28,9 @@ fourth (`hocuspocus`), off by default.
 5. `docker load -i inwardis-bundle-<version>.tar.gz`, then
    `docker compose -f docker-compose.prod.yml up -d`
 6. Verify the version took: `http://<host>:8080/actuator/info` must show the version you
-   pinned (a machine with older cached images can otherwise silently run the wrong one).
+   pinned (a machine with older cached images can otherwise silently run the wrong one) and,
+   under `license`, the trust anchor the build carries — your key validates only in the build
+   your download page gave you.
 7. Open `http://<host>:8080` and register — **the first account registered on a fresh install
    automatically has administrator rights** (there is no default username/password; you create
    the admin by being first). The MFA code arrives by email. Then install your license key
@@ -91,7 +93,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.17`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.20`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
