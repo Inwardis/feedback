@@ -59,20 +59,11 @@ The core product, shipping at launch:
 
 Direction, not commitments — your feedback moves these up or down:
 
-- **AI generation & assistant** — describe a system and get a first-draft model; an in-app
-  assistant for editing and Q&A.
-- **Editor & CLI integrations** — the VS Code extension on the Marketplace, and a command-line tool.
 - **Guided specification modelling** — domain packs that know what a complete specification
   contains, and an agent that interviews you to fill the gaps before the technical modelling starts.
 - **Deeper Sparx EA (XMI) import** — more diagram types and dialect coverage, for teams migrating
   off EA.
 - **Embeds & living documentation** — diagrams that stay in sync inside your docs.
-- **Live database connectors** — reverse engineering straight from a PostgreSQL, MySQL,
-  SQL Server or Oracle connection. Held back from the initial release: an agent reading a
-  schema dump builds a better model than a connector does, so import the `.sql` file for now.
-- **Template marketplace** — share and discover community templates.
-- **Also on the list** — PDF export, issue-tracker integrations, additional UML diagram types
-  from XMI, and internationalization.
 
 ---
 
