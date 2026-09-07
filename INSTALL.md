@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.23   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.24   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -93,7 +93,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.23`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.24`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
@@ -123,6 +123,7 @@ production-sane.
 | `MCP_RATE_LIMIT_WRITE` | `120` | MCP single-entity writes per minute per API key (incl. `create_version`) |
 | `MCP_RATE_LIMIT_BULK` | `60` | MCP batch / render / version-diff calls per minute per API key (`apply_changes`, `render_view`, …) |
 | `MCP_RATE_LIMIT_OVERALL` | `480` | All MCP calls per minute per API key |
+| `MCP_ATTACHMENT_MAX_BYTES` | `8388608` | Largest file (decoded bytes) an agent may add or fetch over MCP; larger files use the REST attachments endpoint |
 | `INWARDIS_METRICS_SCRAPE_TOKEN` | unset | Token granting Prometheus access to `/actuator/prometheus` |
 | `CORS_ORIGINS` | `http://localhost:5173` | Only relevant if a separate web tier fronts the API — the standard install is same-origin |
 
