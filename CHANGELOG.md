@@ -7,6 +7,17 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.25] - 2026-09-07
+
+### Changed
+- **Help: "Importing Models."** The page that used to be titled *Reverse Engineering & Import*
+  is now *Importing Models* — it has covered file, JSON, Sparx EA and repository imports only
+  since live database reverse engineering went dark. Same links, same content.
+- The Integrations help page describes the configurable agent rate limits, the wait reported in
+  a refused call, re-runnable creates (`ifExists`), relations without a view and the attachment
+  tools; Properties & Notes mentions attachments over MCP; Licensing says the price is tax
+  included; The Canvas says a drop onto another element keeps the element on the view.
+
 ## [1.0.0-rc.24] - 2026-09-07
 
 ### Added
