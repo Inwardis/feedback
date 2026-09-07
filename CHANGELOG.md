@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.24] - 2026-09-07
+
+### Added
+- **Attachments over MCP.** An agent can now list an element's files, fetch one, add one and
+  remove one — `list_attachments`, `get_attachment`, `add_attachment`, `delete_attachment`.
+  Content travels base64 inside the call, capped at 8 MB (`MCP_ATTACHMENT_MAX_BYTES`); a larger
+  file is refused with the REST upload endpoint named. What is added over MCP appears in the
+  properties panel like any other attachment.
+
 ## [1.0.0-rc.23] - 2026-09-07
 
 ### Added
