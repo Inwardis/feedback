@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.23] - 2026-09-07
+
+### Added
+- **Show Connections.** Right-click an element → *Show Connections* (or Ctrl+Shift+L): a new
+  tab opens around that element with everything a relation connects it to arranged around it —
+  sources on the left, targets on the right, both-ways above, lines labelled. Double-click a
+  neighbour to re-centre on it; *Expand Connections Here* adds its ring. The tab is temporary:
+  never saved, never in the history, gone when you close it — or right-click it → *Keep as view*.
+
 ## [1.0.0-rc.22] - 2026-09-07
 
 ### Added
