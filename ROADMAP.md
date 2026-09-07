@@ -17,7 +17,7 @@ or 👍 an existing one to help us rank what's next.
 
 ## ✅ Available now
 
-The core product, shipping at launch:
+The core product - people and agents share all of it:
 
 - **Hierarchical modelling** — model vs view separation, drill-down, view anchors, multi-view.
 - **24 built-in templates** — Simple Drawing, Database Design, Flowchart, Infrastructure,
