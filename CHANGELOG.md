@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.26] - 2026-09-07
+
+### Changed
+- **VS Code: the project list is a tree.** *Inwardis: Open Project as Workspace Folder* now
+  lists projects the way the app's explorer does — root projects by name, subprojects
+  indented beneath their parent, the parent path shown beside each subproject so typing a
+  parent's name filters to its subtree. The bundled extension is 0.12.0; install it again from
+  the downloads page to get it.
+
 ## [1.0.0-rc.25] - 2026-09-07
 
 ### Changed
