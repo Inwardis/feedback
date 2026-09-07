@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.22] - 2026-09-07
+
+### Added
+- **Show in Explorer.** Right-click a box on the canvas → *Show in Explorer*, or press
+  Ctrl+Shift+E with one element selected: the explorer panel opens if it was collapsed, the tree
+  unfolds to that element, scrolls it into view and selects it. The reverse of the explorer's
+  *Locate on Canvas*, for the moment a box on a big diagram is easy to see and hard to place in
+  the tree.
+
 ## [1.0.0-rc.21] - 2026-09-07
 
 ### Added
