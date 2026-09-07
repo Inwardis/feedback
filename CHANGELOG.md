@@ -7,6 +7,17 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.29] - 2026-09-07
+
+### Added
+- **Every element and relation type explains itself.** Hover a toolbox item and a sentence says
+  what the type is and when to pick it over its neighbour; the same sentence appears under the
+  type name in the properties panel and in the explorer's tooltip, and agents get it from
+  `get_template`. All 24 built-in templates ship with one per type. Your own templates take a
+  `description` on each type (one sentence, at most 300 characters).
+- A built-in template you customized keeps every edit and gains the shipped descriptions where
+  a type had none, on the next start.
+
 ## [1.0.0-rc.28] - 2026-09-07
 
 ### Added
