@@ -7,6 +7,18 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.28] - 2026-09-07
+
+### Added
+- **What an agent key did.** Every API key now has a **Sessions** view, in the API Keys dialog
+  and on the admin API Keys page: the key's recent sessions — calls grouped by a 30-minute gap,
+  with when, how many calls, which tools and which projects — and, beside the counts, the note
+  an agent left for its next session, labelled *agent-written*. Agents read the same thing with
+  `my_recent_activity` when asked what they did before, and leave the note with
+  `record_session_note` (at most 1,000 characters). Nothing reads it unless asked; another key's
+  history is never visible; notes are deleted with the key.
+- Agent tool calls in the audit log now record which project the call was about.
+
 ## [1.0.0-rc.27] - 2026-09-07
 
 ### Added
