@@ -7,6 +7,25 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.27] - 2026-09-07
+
+### Added
+- **Attachments in VS Code.** An element with files shows them under `_attachments/` in the
+  mounted model; open one and it arrives through VS Code's own viewers. Drop or paste a file
+  into `_attachments/` (or onto the element folder) to attach it, delete one to remove it; a
+  drop onto an existing name is refused, delete first. The bundled extension is 0.14.0 and
+  needs this server version for the file listing.
+- **Attachment files over the API with an API key.** The attachment routes (list, download,
+  upload, delete) now accept an `ink_…` key — read scope to list and download, write scope to
+  upload and delete — so an agent moves a file with one `curl` instead of pushing it through the
+  model as base64. `list_attachments`, `read_project_tree` and `read_element` return each file's
+  download path; the Integrations help page shows the two commands.
+
+### Changed
+- `add_attachment` / `get_attachment` describe the API route first and the in-call base64 form
+  as the fallback for content the agent holds in memory. The over-limit answer from
+  `get_attachment` now names a route the key can actually use.
+
 ## [1.0.0-rc.26] - 2026-09-07
 
 ### Changed
