@@ -7,6 +7,34 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.21] - 2026-09-07
+
+### Added
+- **Move an element without dragging.** Right-click it in the explorer → *Move to…*, or use
+  *Parent → Change…* in the properties panel, to put it under any other element or promote it to
+  the top level. The picker shows every candidate and greys out the ones that cannot take it, with
+  the reason. A move keeps the element on every view it is placed on.
+- **Re-runnable imports for agents.** `create_element` and `create_relation` accept
+  `ifExists: skip | update`, keyed on what you can name (parent, type and name; source, target and
+  type), so a script that builds a model can be run again without creating duplicates. Two rows
+  that already share the key are refused rather than guessed between.
+- **Relations no longer need a view.** `create_relation` without a `viewId` writes the relation
+  into the model; it is drawn on every view where both ends are placed, and the response says which.
+- **Agent rate limits are configurable.** `MCP_RATE_LIMIT_ENABLED` and `MCP_RATE_LIMIT_READ`,
+  `_WRITE`, `_BULK`, `_OVERALL` set the per-key limits; the defaults are six times higher than
+  before, sized for one person and one agent on one machine. A refused call now says in its body
+  how many seconds to wait.
+
+### Changed
+- **Dropping an element into another keeps it on the view**, drawn inside its new parent, instead
+  of removing it from the diagram.
+- **A Decision can be marked as enforced in a component** in the Issues template, alongside
+  Invariants and Rules.
+- Searching the model counts as a read for rate limiting, and creating a version as a write,
+  so neither competes with batch writes for the smaller bulk budget.
+- The project brief names the highest-numbered phase as the latest when several closed on the
+  same day.
+
 ## [1.0.0-rc.20] - 2026-09-04
 
 > rc.18 and rc.19 were tagged the same afternoon and never published: their image builds refused
