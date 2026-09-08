@@ -7,6 +7,32 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.30] - 2026-09-08
+
+### Added
+- **Revoke every API key at once.** Admin → API Keys has *Revoke all…* for the day a key leaks
+  or an agent misbehaves: every active key in the workspace, the admin's own included, stops on
+  its next call, and everyone needs new keys afterwards. The confirmation asks you to type
+  `revoke all` before the button enables — Enter will not do it for you. The audit log gets one
+  *api_key.revoked_all* row with the count beside the per-key rows.
+
+### Fixed
+- **Login codes are now emailed.** With email MFA enabled (`INWARDIS_AUTH_MFA_ENABLED=true`) the
+  six-digit login code goes to the account's address the moment the password is accepted; it
+  used to be written to the server log and never sent, so nobody could sign in. If the mail
+  server refuses it, the login screen says *Could not send the login code — contact your
+  administrator*. An install with MFA on and no `SMTP_HOST` refuses to start, naming both
+  settings, rather than lock everyone out.
+- **Invitations work again, as role pre-assignment.** Since registration joins the workspace
+  automatically, an invitation is how an admin decides in advance what role a person gets:
+  whoever registers with the invited address receives that role at registration, and someone
+  who already has an account takes it by opening the invitation link. The link sends a
+  newcomer to *Register* with the address filled in, and a used or expired invitation says so
+  instead of *invalid*. Inviting someone who is already a member now points you at the Members
+  tab, where roles are changed.
+- The unused organization disable/enable leftovers were removed from the database (migration
+  V43); nothing you can see changes.
+
 ## [1.0.0-rc.29] - 2026-09-07
 
 ### Added
