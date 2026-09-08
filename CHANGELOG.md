@@ -7,6 +7,14 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.31] - 2026-09-08
+
+### Added
+- **Attachments open in Inwardis.** Click a Markdown, text or image attachment's name (or the
+  eye button) and it opens in a preview instead of downloading — Markdown rendered like notes,
+  with tables and code; text as is; images inline. *Download* stays one click away and Escape
+  closes. Other file types, and text over 2 MB or images over 20 MB, remain downloads.
+
 ## [1.0.0-rc.30] - 2026-09-08
 
 ### Added
