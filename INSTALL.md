@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.29   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.30   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -56,7 +56,7 @@ The compose file refuses to start without them — there are no insecure default
 The product sends email for **invitations**, **notifications** (license expiry, shares, system
 alerts to admins) and **login codes when email MFA is enabled** — it is off by default
 (`INWARDIS_AUTH_MFA_ENABLED=true` turns it on, and then a working mail path *is* required to
-log in). With no `SMTP_HOST` set, the product runs normally, the System page shows mail as
+log in — the product refuses to start with MFA on and no `SMTP_HOST`, rather than lock everyone out). With no `SMTP_HOST` set, the product runs normally, the System page shows mail as
 *not configured*, and those emails are simply not sent. Two ways to provide a mail path:
 
 **A — your SMTP relay (production):** uncomment and set in the compose environment (or `.env`):
@@ -93,7 +93,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.29`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.30`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
