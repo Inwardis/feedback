@@ -7,6 +7,24 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.33] - 2026-09-09
+
+### Added
+- **Comments on elements.** A new *Comments* section under an element's attachments: threads
+  with replies, mentions (`@[Name]` or `@email` notify a project member, in the app and by
+  e-mail), resolve and reopen. A comment is about the model and never part of it — it does not
+  enter the notes, the git repository or an export.
+- **Comment on a passage.** Select text in a notes field and press 💬: the comment remembers the
+  passage as a quote, not as a mark inside your text, so the note stays free to be rewritten.
+  Anchored passages are highlighted while they exist; if the passage is edited away, the comment
+  stays and is shown as *orphaned* with the quote it was about.
+- **Review pane.** The toolbar's *Review* button lists every open thread in the project, newest
+  first — click the element to jump there, resolve in place. Elements with open threads carry a
+  💬 badge on the canvas and in the explorer.
+- **Agents comment too.** Three MCP tools — `add_comment`, `list_comments`, `resolve_comment` —
+  let an agent raise a question or a finding without editing the model; `read_element` reports
+  open and total comment counts. An agent's comment is labelled with its API key name.
+
 ## [1.0.0-rc.32] - 2026-09-09
 
 ### Added
