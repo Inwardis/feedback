@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.34] - 2026-09-09
+
+### Changed
+- **Relation labels stay readable on an auto-laid-out view.** A label now sits beside its line on
+  the longest free stretch of the route, never on another relation's line or on an element box
+  when a free spot exists, and points back with a dotted leader when it had to move. Very long
+  labels are cut at 36 characters with the full text as a tooltip. Auto-layout reserves room for
+  labels, so busy figures spread out where the text needs it rather than everywhere.
+- **Relation labels per view.** Right-click a view tab and cycle *Relation labels* between all,
+  names only and none; exports and server-rendered figures follow the same setting.
+- Agents: `render_view` now reports how many labels are drawn over another label, an element box
+  or another relation's line.
+
 ## [1.0.0-rc.33] - 2026-09-09
 
 ### Added
