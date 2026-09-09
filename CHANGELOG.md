@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.36] - 2026-09-09
+
+### Changed
+- **Leaner, checked images.** Every image is now scanned for known vulnerabilities before it is
+  published, and ships with a software bill of materials (SBOM, CycloneDX) — ask us for the file
+  of your version. The runtime images no longer carry tools they never run (a service manager in
+  the Java base image, the package manager and build tools in the Node images), which is where
+  the base images' known issues lived. The render sidecar's dependencies were updated.
+- **Installation reference.** Ten settings the product reads were missing from the manual and the
+  install guide — the sender address and name of outgoing mail, the base URL used in email links,
+  the workspace name, the project nesting limit, the upload size limit, and the slow-query and
+  alert settings of the Performance card. All are documented now.
+
 ## [1.0.0-rc.35] - 2026-09-09
 
 ### Changed
