@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.35   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.36   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -93,7 +93,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.35`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.36`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
@@ -101,6 +101,8 @@ production-sane.
 | `INWARDIS_GIT_ATTACHMENTS` | `false` | Install-wide default for *Attachments in the git tree* (text attachments verbatim + an `attachments.yaml` per element; binaries never). Each project can override it in Git Settings |
 | `INWARDIS_RENDER_SIDECAR_URL` | `http://localhost:3001` | Render sidecar address (compose sets the container name) |
 | `JAVA_OPTS` | empty | Extra JVM flags, e.g. `-Xmx2g` |
+| `INWARDIS_WORKSPACE_NAME` | `Workspace` | Display name of the install-wide workspace, created on first startup (rename later in the Admin Panel) |
+| `INWARDIS_MAX_PROJECT_DEPTH` | `8` | How deep projects may nest (subprojects of subprojects); a move or create beyond it is refused |
 
 ### Attachment storage
 
@@ -122,6 +124,8 @@ production-sane.
 | `SMTP_USERNAME` / `SMTP_PASSWORD` | empty | Relay credentials |
 | `SMTP_AUTH` / `SMTP_STARTTLS` | `false` / `false` | Enable for authenticated/TLS relays |
 | `NOTIFICATIONS_ENABLED` | `true` | In-app + email notifications |
+| `NOTIFICATION_FROM_ADDRESS` / `NOTIFICATION_FROM_NAME` | `noreply@inwardis.local` / `Inwardis` | Sender of every email the product sends — set the address to one your relay accepts |
+| `APP_BASE_URL` | `http://localhost:5173` | The URL users open the product at; every link in an email (invitation, mention, login code) is built on it |
 
 ### Security & limits
 
@@ -137,6 +141,9 @@ production-sane.
 | `MCP_RATE_LIMIT_OVERALL` | `480` | All MCP calls per minute per API key |
 | `MCP_ATTACHMENT_MAX_BYTES` | `8388608` | Largest file (decoded bytes) an agent may add or fetch over MCP; larger files use the REST attachments endpoint |
 | `INWARDIS_METRICS_SCRAPE_TOKEN` | unset | Token granting Prometheus access to `/actuator/prometheus` |
+| `INWARDIS_MAX_UPLOAD_SIZE` | `2GB` | Largest single upload over REST — attachments, imports and workspace-backup restores (Spring size syntax, e.g. `500MB`) |
+| `INWARDIS_SLOW_QUERY_THRESHOLD_MS` | `500` | Database statements slower than this are logged as slow queries and counted on the admin Performance card |
+| `INWARDIS_OBSERVABILITY_ALERTS_ENABLED` | `true` | Threshold alerts on the admin Performance card (error rate, slow queries, memory); `false` silences them |
 | `CORS_ORIGINS` | `http://localhost:5173` | Only relevant if a separate web tier fronts the API — the standard install is same-origin |
 
 ### Feature flags
