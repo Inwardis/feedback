@@ -7,6 +7,22 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.35] - 2026-09-09
+
+### Changed
+- **Resolving a comment thread is the author's or a project manager's.** Other editors still
+  comment and reply; the Resolve and Reopen buttons appear only where they would be allowed.
+  Agents closing a thread they did not open are told to reply instead.
+
+### Fixed
+- **Purchases and the download page (inwardis.com).** A purchase whose confirmation from Stripe
+  failed on our side is now retried by Stripe until it lands, instead of being marked as handled
+  with nothing issued. The download gate and the entitlement check now use one rule. The pricing
+  page's checkout dialog named the plans in euros under dollar prices. Starting a checkout from
+  `www.inwardis.com` was blocked by the browser. The compose file the download page offers is now
+  always the one the release was built with, and the site's tool and template counts are checked
+  against the product on every release.
+
 ## [1.0.0-rc.34] - 2026-09-09
 
 ### Changed
