@@ -7,6 +7,33 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.32] - 2026-09-09
+
+### Added
+- **Attachments can live outside the database.** By default nothing changes — attachments stay
+  in PostgreSQL. An installation can now set `INWARDIS_ATTACHMENT_STORAGE=file` (a directory
+  under the data volume) or `=s3` (any S3-compatible bucket, MinIO included) for new uploads;
+  existing attachments keep working wherever they were stored. Uploads and downloads stream, so
+  a large file no longer passes through memory.
+- **Backups carry every attachment.** A workspace backup includes attachments stored on disk or
+  in S3, and restoring on another installation writes them into that installation's storage —
+  which is also how you move a workspace between storage kinds. Backups made before this
+  version still restore. If an attachment file has gone missing, the backup download is
+  refused up front with the affected attachments named, instead of producing a broken archive.
+- **Attachments in the git tree (opt-in).** A project can put its text attachments (Markdown,
+  JSON, CSV, …) beside the element's notes in its git repository, with an `attachments.yaml`
+  listing every attachment, its size and checksum. Binary files are listed but never stored in
+  git. The setting is per project under *Git Settings*, with three choices: follow the
+  install default, on, or off. The install default is **off**.
+
+### Changed
+- **Clearer errors from attachment storage.** A full disk, an unreachable bucket or a lost
+  file now answers with *attachment storage failed* instead of a generic server error.
+- An attachment that cannot be read never blocks saving a version: it is listed in the git
+  tree with the reason, and the version is created.
+- An attachment uploaded with an unusable content type is stored and served as a generic
+  binary instead of failing to download.
+
 ## [1.0.0-rc.31] - 2026-09-08
 
 ### Added
