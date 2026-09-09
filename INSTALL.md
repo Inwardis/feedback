@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.31   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.32   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -93,13 +93,25 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.31`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.32`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
 | `INWARDIS_REPOS_ROOT` | `/app/data/repos` (image) | Git version repositories — must be on a volume |
+| `INWARDIS_GIT_ATTACHMENTS` | `false` | Install-wide default for *Attachments in the git tree* (text attachments verbatim + an `attachments.yaml` per element; binaries never). Each project can override it in Git Settings |
 | `INWARDIS_RENDER_SIDECAR_URL` | `http://localhost:3001` | Render sidecar address (compose sets the container name) |
 | `JAVA_OPTS` | empty | Extra JVM flags, e.g. `-Xmx2g` |
+
+### Attachment storage
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `INWARDIS_ATTACHMENT_STORAGE` | `db` | Where **new** attachments are stored: `db` (in PostgreSQL), `file` (a directory), `s3` (an S3-compatible bucket). Existing attachments keep working wherever they were stored; backup + restore moves them |
+| `INWARDIS_ATTACHMENT_DIR` | `/app/data/attachments` | Directory for `file` storage — must be on a volume |
+| `INWARDIS_S3_BUCKET` | unset | Bucket for `s3` storage; setting it enables the S3 client |
+| `INWARDIS_S3_ENDPOINT` / `INWARDIS_S3_REGION` | unset / `us-east-1` | Endpoint for MinIO and other on-prem stores (leave unset for AWS); region |
+| `INWARDIS_S3_ACCESS_KEY` / `INWARDIS_S3_SECRET_KEY` | unset (SDK default chain) | Static credentials; unset uses the AWS default chain (env, profile, instance role) |
+| `INWARDIS_S3_PATH_STYLE` | `false` | `true` for MinIO and most on-prem stores |
 
 ### Mail
 
