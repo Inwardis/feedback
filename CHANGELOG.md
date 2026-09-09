@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.37] - 2026-09-09
+
+### Changed
+- **Dependency refresh.** The product and the licensing service moved from the Spring Boot 3.4
+  line of January 2025 to 3.5.16, with Tomcat, the PostgreSQL driver and the SQL Server driver on
+  their current patch releases and an unused Netty HTTP stack removed from the image. Before this
+  the product image carried 63 known vulnerabilities with a published fix in its Java libraries;
+  it now carries none, and from this release the publish pipeline refuses any image that does —
+  application libraries included, not only the base image.
+- **Audit trail.** Saving a project's git settings — the remote URL, the branch, the push and
+  review switches, whether attachments are published into the tree, and whether the access token
+  was replaced — now writes an audit event. The token itself is never recorded.
+
 ## [1.0.0-rc.36] - 2026-09-09
 
 ### Changed
