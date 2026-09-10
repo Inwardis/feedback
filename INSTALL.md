@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.43   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.44   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -50,6 +50,43 @@ tag, `docker compose up -d`.
 | `INWARDIS_ENCRYPTION_KEY` | Encrypts stored git-remote credentials. **Exactly 32 bytes.** Losing it loses those credentials. | `openssl rand -base64 24` |
 
 The compose file refuses to start without them — there are no insecure defaults in production.
+
+### On Windows
+
+Docker Desktop uses WSL2 as its engine, but it does **not** give you a Linux shell — the
+distributions it installs are internal. **PowerShell needs nothing extra**, so start there.
+
+Two things differ in PowerShell. Download the compose file with `curl.exe`, not
+`curl`, which PowerShell aliases to `Invoke-WebRequest`. And `openssl` is not on Windows, so
+generate the three secrets from .NET's cryptographic source:
+
+```powershell
+$rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+$b = New-Object 'System.Byte[]' 16; $rng.GetBytes($b)
+$pg  = ($b | ForEach-Object { $_.ToString('x2') }) -join ''
+$b = New-Object 'System.Byte[]' 32; $rng.GetBytes($b)
+$jwt = ($b | ForEach-Object { $_.ToString('x2') }) -join ''
+$b = New-Object 'System.Byte[]' 24; $rng.GetBytes($b)
+$key = [Convert]::ToBase64String($b)
+
+@"
+POSTGRES_PASSWORD=$pg
+JWT_SECRET=$jwt
+INWARDIS_ENCRYPTION_KEY=$key
+INWARDIS_VERSION=<version>
+"@ | Set-Content -Encoding ascii .env
+```
+
+**`-Encoding ascii` is required, not cosmetic.** PowerShell writes UTF-16 by default, Docker Compose
+reads that as binary, and the first variable silently goes missing — which presents as Compose
+refusing to start with no clue why. Never substitute `Get-Random` for the generator above: it is not
+a cryptographic source, and these three secrets protect the database, every session and your stored
+git credentials.
+
+**Already using WSL?** If you have a Linux distribution installed — you would have added it
+yourself, or with `wsl --install` — every command on this page works inside it unchanged. Enable
+that distribution first under *Docker Desktop → Settings → Resources → WSL integration*, or
+`docker` will not be on its path.
 
 ## Email setup — optional, recommended
 
@@ -93,7 +130,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.43`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.44`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
