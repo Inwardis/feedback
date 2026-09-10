@@ -7,6 +7,13 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.43] - 2026-09-10
+
+### Changed
+- **Clicking a cross-project ghost opens the notes pane** when it is closed, so the referenced
+  element's notes are there to read straight away. The pane then stays open like any other, until
+  you close it.
+
 ## [1.0.0-rc.42] - 2026-09-10
 
 ### Changed
