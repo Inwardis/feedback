@@ -7,6 +7,16 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.40] - 2026-09-10
+
+### Changed
+- **Double-click drills down everywhere, temporary views included.** In a *Show connections*
+  view, double-clicking an element used to re-centre the view on it, so its children could not be
+  reached the usual way. Now it drills in like anywhere else; to walk the model, Shift+double-click
+  a neighbour. The tab's tooltip says so.
+- **The child count in a box's top-right corner is bolder on every box shape.** rc.39 had changed
+  one shape only.
+
 ## [1.0.0-rc.39] - 2026-09-10
 
 ### Added
