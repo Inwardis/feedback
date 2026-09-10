@@ -7,6 +7,21 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.44] - 2026-09-10
+
+### Added
+- **The release you are running is marked in *What's new*.** The page lists every release, newest
+  first, and the one this installation is actually running now has a tinted heading reading *You are
+  running this version* — so you can see at a glance what you already have and what an upgrade would
+  bring. The Help panel's footer names that version too. If your build's version is not in the
+  notes, nothing is highlighted rather than the newest entry being presented as yours.
+- **Installing on Windows is documented.** The manual's Installation page gains an *On Windows*
+  section. Docker Desktop uses WSL2 as its engine but does not give you a Linux shell, so PowerShell
+  is the path that needs nothing extra: there is a recipe for the three secrets, since `openssl` is
+  not on Windows, along with the encoding pitfall that otherwise makes Compose refuse to start for
+  no visible reason. If you already run a WSL distribution, the Linux commands work inside it
+  unchanged once Docker Desktop's WSL integration is enabled for it.
+
 ## [1.0.0-rc.43] - 2026-09-10
 
 ### Changed
