@@ -7,6 +7,27 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.39] - 2026-09-10
+
+### Added
+- **Import an OpenAPI document, a SQL schema or an Enterprise Architect XMI file through the
+  agent interface.** `import_model` accepts `openapi`, `sql` and `xmi` alongside the product's
+  own text format, through the same path the in-app import actions use, so the same rules apply
+  and the same warnings come back. An XMI import lands on one view; the per-diagram views are
+  still built by the in-app wizard.
+- **Cheaper agent reads.** `list_projects` can filter by name and answer with ids only, and
+  `search_elements` can answer with names only — a fifth of the size of a full hit. Nothing
+  changes for callers that do not ask for the cheaper forms.
+
+### Changed
+- **The child count in a box's top-right corner is bolder and a step larger**, matching the
+  count in Quick Links, and boxes with children reserve a little more title room for it.
+
+### Fixed
+- **An element can be changed to a type with fewer properties.** Sending a property as `null`
+  removes it, so a retype that drops a field succeeds in one call; if you forget, the error names
+  the fields and says how.
+
 ## [1.0.0-rc.38] - 2026-09-10
 
 ### Added
