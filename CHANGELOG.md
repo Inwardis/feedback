@@ -7,6 +7,21 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.38] - 2026-09-10
+
+### Added
+- **Filter this view.** A thin input above the canvas filters the diagram in front of you as you
+  type: matching boxes light up, the rest dim, and nothing is hidden. It matches titles, type
+  names, the rows a box draws and its notes — even notes the box is not showing. Enter steps
+  through the matches and pans onto each; Escape clears; `/` jumps into the filter from anywhere.
+  Search (Ctrl+F) is unchanged and still looks through the whole model.
+
+### Changed
+- **The explorer remembers where you were.** After a reload or a new sign-in on the same browser
+  you return to the same project and view, with the same tree nodes open, the same element
+  selected and the explorer scrolled to where it was. The memory stays in your browser and never
+  in the model.
+
 ## [1.0.0-rc.37] - 2026-09-09
 
 ### Changed
