@@ -7,6 +7,16 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.42] - 2026-09-10
+
+### Changed
+- **A referenced element from another project can be read where it is drawn.** Clicking the
+  ghost box of a cross-project reference used to take you to the other project. It now fills the
+  properties panel with a read-only card — name, type, project, notes and fields, plus which way
+  the reference points and what it connects to here — and double-clicking the ghost makes the
+  journey. If you cannot open that project, the card says so and shows what the reference carries.
+  If the split notes pane is open it follows along, showing that element's notes read-only.
+
 ## [1.0.0-rc.41] - 2026-09-10
 
 ### Fixed
