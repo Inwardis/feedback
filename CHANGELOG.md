@@ -7,6 +7,16 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.45] - 2026-09-10
+
+### Fixed
+- **The Windows installation notes pointed at a Linux shell you may not have.** Docker Desktop uses
+  WSL2 as its engine, but the distributions it installs are internal and never appear in the Start
+  menu, so the previous wording sent Windows readers looking for an Ubuntu entry that is not there.
+  The *On Windows* section now leads with PowerShell, which needs nothing beyond Docker Desktop
+  itself, and keeps WSL as a note with what it actually requires: a distribution you installed, and
+  that distribution enabled under Docker Desktop's WSL integration.
+
 ## [1.0.0-rc.44] - 2026-09-10
 
 ### Added
