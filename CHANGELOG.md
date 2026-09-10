@@ -7,6 +7,18 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.41] - 2026-09-10
+
+### Fixed
+- **Saving no longer fails forever after a deleted element is still referenced from another
+  project.** When an element in project A was deleted while a reference in project B still pointed
+  at it, every subsequent save of A answered a 500. The save now keeps such an element as deleted
+  instead of removing the row the reference needs; the reference shows a deleted target, as it did
+  before the save.
+- **Selecting an element you have not saved yet no longer produces server errors** behind the
+  scenes: the comments and attachments panels wait for the save instead of asking the server for an
+  id it has never seen. A malformed id in a request now answers 400 instead of 500.
+
 ## [1.0.0-rc.40] - 2026-09-10
 
 ### Changed
