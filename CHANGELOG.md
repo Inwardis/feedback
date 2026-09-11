@@ -7,6 +7,17 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.47] - 2026-09-11
+
+### Fixed
+- **Editing a template now changes every picture, not just the canvas.** Server-rendered diagrams —
+  the ones an AI agent asks for, the VS Code previews, and embedded diagram links — used the
+  template definitions that shipped with the product rather than the ones in your database. So a
+  customised built-in template looked right on the canvas and unchanged everywhere else, with
+  nothing to indicate the difference. The project's own templates now travel with each render.
+- **Diagrams of projects using a custom template render properly.** Their elements used to fall back
+  to a default shape and colour in server-rendered output; they now look the way the template says.
+
 ## [1.0.0-rc.46] - 2026-09-11
 
 ### Added
