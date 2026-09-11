@@ -7,6 +7,23 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.49] - 2026-09-11
+
+### Added
+- **A link in a note can now point at anything in your workspace, not just the open project.** The
+  **@** button in the notes toolbar — or simply typing `@` while you write — searches this project
+  first and instantly, then lists matches from your other projects underneath, grouped by project
+  name. Nothing is searched until you start typing.
+- **Following such a link keeps you where you are.** Click a link to an element in another project
+  and it opens read-only right there — its fields in the properties panel, its notes in the reading
+  pane, and its own project named. If you do want to go there, the card offers **Open in …**. A
+  link into a project you cannot open, or to something that has since been removed, says so instead
+  of doing nothing.
+
+Links carry only the element's id, never its name or its project, so an element can be renamed or
+moved to a different project and every link to it keeps working. Your own wording around the link
+is never rewritten.
+
 ## [1.0.0-rc.48] - 2026-09-11
 
 ### Fixed
