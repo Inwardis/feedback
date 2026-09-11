@@ -7,6 +7,22 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.46] - 2026-09-11
+
+### Added
+- **Export one area of a project, not just the whole thing.** Right-click an element in the
+  Explorer and choose **Export Subtree** to get that element and everything beneath it as Markdown,
+  JSON, YAML or ITL. Two things are deliberately left out and the export tells you what they were:
+  relations that point to elements outside the area, and views that are not anchored inside it. A
+  Markdown export opens with a line naming the element it started from, so it can never be mistaken
+  for an export of the whole project. Agents can do the same through `export_model`.
+
+### Fixed
+- **Long context menus no longer run off the bottom of the window.** A menu now measures itself
+  rather than assuming a height, so it stays fully on screen however many items it has — including
+  when it grows after opening. A menu taller than the window scrolls instead of hiding its last
+  items. This affects the Explorer, project and canvas menus alike.
+
 ## [1.0.0-rc.45] - 2026-09-10
 
 ### Fixed
