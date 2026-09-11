@@ -7,6 +7,21 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.48] - 2026-09-11
+
+### Fixed
+- **The split reading pane now follows you as you move around.** It kept showing whichever field it
+  was last pointed at, so selecting an element whose notes are stored under a different field name
+  left the pane blank, with no way to tell why — pressing **Split** in the properties panel was the
+  only cure. It now picks up each element's own notes as you select it, in the Explorer and on the
+  canvas alike. An element whose type has no notes field says so plainly instead of showing an empty
+  editor.
+
+### Added
+- **A retired concept can name its replacement.** In the Concept Map template, a concept marked
+  *Deprecated* had no way to say what to use instead. *Supersedes* now links the newer term to the
+  one it replaces, so the old entry stays findable and answers the question it raises.
+
 ## [1.0.0-rc.47] - 2026-09-11
 
 ### Fixed
