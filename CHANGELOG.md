@@ -7,6 +7,25 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.50] - 2026-09-11
+
+### Added
+- **Every place in your model now has a link you can send.** Right-click an element — on the canvas
+  or in the Explorer — and choose **Copy Link**. Whoever opens it lands on the same view with the
+  same element selected and the Explorer opened and scrolled to it. The address names the project,
+  the view and the element.
+- **Back and Forward work.** Moving between views and projects is now browser history, so the usual
+  two buttons do what you expect. If you have unsaved changes, you are asked first — exactly as when
+  switching projects any other way.
+
+Opening Inwardis without a link is unchanged: you land where you last were. The address only takes
+over when there is one. It carries where you are looking and nothing else — not your zoom, not your
+pan, not which folders you have open, because those are yours and a shared link should not rearrange
+someone else's workspace.
+
+A link can outlive what it points at. If the project has been deleted, or was never shared with you,
+Inwardis says so and opens where you would otherwise have landed.
+
 ## [1.0.0-rc.49] - 2026-09-11
 
 ### Added
