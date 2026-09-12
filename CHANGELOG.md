@@ -7,6 +7,16 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.54] - 2026-09-12
+
+### Fixed
+- **Restoring an earlier version no longer resets when things were created.** Restoring a project
+  from its history — and resolving a conflict between two concurrent saves — rewrote every element,
+  relation and view, and in doing so stamped them all as created at that moment. The original dates
+  were not recoverable afterwards. They are now carried through, including for an element that a
+  restore brings back after it had been deleted. When something was last *changed* still updates, as
+  it should: a restore really does change everything.
+
 ## [1.0.0-rc.53] - 2026-09-12
 
 ### Added
