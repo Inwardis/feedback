@@ -7,6 +7,26 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.51] - 2026-09-12
+
+### Added
+- **The VS Code extension can hand you a link.** Right-click any element in the `inwardis://` tree
+  and choose **Copy element URL** or **Open element in browser** — the same pair the web app has,
+  sitting next to **Copy code reference**. One is for a comment in your code, the other for a
+  colleague's browser.
+- **An agent can open an address you paste at it.** Give it a path copied from the VS Code tree, a
+  link from the web app, or just the short id at the end of either, and it goes straight to that
+  element instead of guessing from the words in the path. Where a short id could mean more than one
+  element it says so and lists them, rather than picking one and being quietly wrong.
+
+### Changed
+- The VS Code extension bundled with Inwardis is now **0.15.0**. Download it from the help page and
+  reinstall over your current copy.
+
+Links copied from VS Code need no configuration when your Inwardis server and the web app share an
+address, which is the normal setup. If you run them on separate addresses, set **`inwardis.webUrl`**
+to the address of the web app.
+
 ## [1.0.0-rc.50] - 2026-09-11
 
 ### Added
