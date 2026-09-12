@@ -7,6 +7,26 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.52] - 2026-09-12
+
+### Changed
+- **Reading a model with an AI agent is far faster and far cheaper.** Asking for a project now
+  returns its **top level, in summary**, instead of every element and every note at once. On a large
+  model that is the difference between a couple of thousand words and well over a million — enough
+  that an agent could previously exhaust its working memory before it had read anything useful. It
+  descends deliberately from there, and every answer now states what it held back, so a partial read
+  is never mistaken for the whole model.
+
+  **If you have built your own tooling against the API:** a request that named only a project used
+  to return the entire model, and now returns one level. Add `allLevels: true` to ask for
+  everything, or `depth` to go as deep as you want. Requests that already specified `depth` or
+  `detail` are unaffected.
+
+  Reading a *single element* is unchanged — it still returns that element and its children in full.
+
+- The VS Code extension bundled with Inwardis is now **0.16.0**, updated for the above. Reinstall it
+  from the help page with this release.
+
 ## [1.0.0-rc.51] - 2026-09-12
 
 ### Added
