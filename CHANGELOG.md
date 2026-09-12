@@ -7,6 +7,24 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.53] - 2026-09-12
+
+### Added
+- **An AI agent can now say what it was working from, and is told when something changed
+  underneath it.** Until now, if two agents — or an agent and a person — edited the same element,
+  the second write simply won and nothing recorded that the first had been lost. An agent can now
+  pass back the "last changed" stamp it read; if anything moved in between, the write is refused and
+  it is told when the element changed and who changed it, so it can re-read and re-apply instead of
+  quietly overwriting work it never saw. It is optional, so existing tooling is unaffected.
+- **Asking what changed.** Reading a project can now return only the elements that moved since a
+  given moment, with a count of how many did not — useful for a long-running session that would
+  otherwise re-read everything.
+
+### Fixed
+- **A write now reports the state it produced, not the state it replaced.** Batched changes echoed
+  back the element's previous "last changed" time, and single changes echoed a value very slightly
+  more precise than the one actually stored. Both are now exactly what the database holds.
+
 ## [1.0.0-rc.52] - 2026-09-12
 
 ### Changed
