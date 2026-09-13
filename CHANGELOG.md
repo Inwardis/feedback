@@ -7,6 +7,27 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.55] - 2026-09-13
+
+### Added
+- **A Markdown export now says what each element connects to.** Exports described the hierarchy in
+  full and then listed every relation in one block at the end, in no particular order, with both
+  ends written as bare names — so a document could describe a service completely and never mention
+  that it talked to anything, and on a large model that closing list grew into hundreds of lines
+  nobody could use. Each element now carries its own relations, in both directions, where it is
+  described; the closing list is gone. Where a name appears more than once in the document the far
+  end is qualified with its parent, so two lines that used to read identically no longer do.
+- **Notes written on a relation reach the export.** Prose describing *why* two things are connected
+  has never appeared in an exported document. It now sits with the relation it belongs to.
+
+### Fixed
+- **Saving in the browser no longer discards changes made elsewhere.** If an AI agent, the API or
+  the VS Code extension changed a project while you had it open, saving from the canvas could
+  replace their work with the version your browser had loaded — silently, with no conflict reported
+  to either side and nothing in the version history to show that anything had been lost. Those
+  changes are now recorded before your save is applied, so they are kept in the project's history
+  and merged rather than overwritten.
+
 ## [1.0.0-rc.54] - 2026-09-12
 
 ### Fixed
