@@ -7,6 +7,30 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.58] - 2026-09-13
+
+### Added
+- **See who did what, in words.** Right-click an element (in the Explorer or on the canvas) or a
+  project and choose *View Activity*: a panel beside Version History lists what happened to it —
+  *Anna changed description of element “Canvas Engine”*, *Agent claude-code created relation …* —
+  with who, when and through which door (the app, MCP, the API), newest first. Tick *Include
+  children* (or *Include subprojects*) to widen it, *Load more* to go further back. A canvas save
+  shows up as one line per element it changed, not as “saved the project”. The properties panel
+  shows *Last changed by … · 3 minutes ago* for the selected element. Version History stays what
+  it was — snapshots to compare and restore; this is the trail.
+- **Agents are named as agents.** A change made through an API key is now recorded under the key's
+  name, never as the person who owns it — in the activity trail, in the live change toast, and in
+  the admin audit log.
+- **The live feed says who.** When someone else changes the model you have open, the box they
+  touched carries a small badge with their name for a few seconds, and the “your next save will
+  merge” message names them instead of “someone else”. The toolbar shows who has the project open
+  right now — *2 people · 1 agent*.
+- **For agents: ask what changed instead of re-reading.** A new MCP tool, `get_changes`, returns the
+  same activity sentences a person reads — for a project or an element, since a given time, with
+  or without children — so an agent that built context earlier can catch up in one call.
+  `learn {topic: "awareness"}` explains it, together with the change feed and presence; the
+  manual gained an *Activity, Awareness and Presence* page.
+
 ## [1.0.0-rc.57] - 2026-09-13
 
 ### Added
