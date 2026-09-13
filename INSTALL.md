@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.56   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.57   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -130,12 +130,13 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.56`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.57`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
 | `INWARDIS_REPOS_ROOT` | `/app/data/repos` (image) | Git version repositories — must be on a volume |
 | `INWARDIS_GIT_ATTACHMENTS` | `false` | Install-wide default for *Attachments in the git tree* (text attachments verbatim + an `attachments.yaml` per element; binaries never). Each project can override it in Git Settings |
+| `INWARDIS_CODE_SCAN_INTERVAL_MS` | `3600000` | How often the server rescans each project's declared code repositories for `@inwardis` marks (milliseconds; one hour). *Scan now* in the *Code Repositories…* dialog runs one immediately. Phase 248. |
 | `INWARDIS_RENDER_SIDECAR_URL` | `http://localhost:3001` | Render sidecar address (compose sets the container name) |
 | `JAVA_OPTS` | empty | Extra JVM flags, e.g. `-Xmx2g` |
 | `INWARDIS_WORKSPACE_NAME` | `Workspace` | Display name of the install-wide workspace, created on first startup (rename later in the Admin Panel) |
