@@ -7,6 +7,25 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.56] - 2026-09-13
+
+### Added
+- **The VS Code drive shows every element's text, whatever the template calls it.** An element's
+  folder on the `inwardis://` drive carried a `notes.md` only when its template stores the text in
+  a property called *notes* — templates that call it *description* (C4 models among them) showed a
+  folder with no text at all, and there was no file to edit. Each rich-text property now appears as
+  its own Markdown file named after it — `notes.md`, `description.md` — and saving any of them
+  updates that property. VS Code extension 0.17.0, served from your own instance under
+  *Downloads*.
+- **Copy Link on projects.** Right-click a project or subproject in the Explorer and choose *Copy
+  Link* to share the project itself, the way you already could for an element.
+
+### Fixed
+- **Clicking the open project in the Explorer brings its canvas back.** After clicking an element
+  had taken the canvas into a sub-view, clicking the project's own row did nothing; the only way back
+  was the breadcrumb or opening another project first. The click now returns the canvas to the
+  project's top level, and leaves it alone when it is already there.
+
 ## [1.0.0-rc.55] - 2026-09-13
 
 ### Added
