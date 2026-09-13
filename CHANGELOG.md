@@ -7,6 +7,21 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.57] - 2026-09-13
+
+### Added
+- **Elements can point at their code.** Right-click a project in the Explorer → *Code Repositories…*
+  and add the git repository (or several) the project's code lives in — URL, branch, an optional path
+  prefix, and a read-only access token for a private repository; a subproject without repositories of
+  its own uses the nearest ancestor's. Inwardis then scans the repository on the server — once an hour,
+  and immediately on *Scan now* — for `@inwardis <uuid>` marks in source comments (the same marks the
+  VS Code extension already reads), and every element the scan finds gets a **Code** section in the
+  properties panel: the file and line, linking to the file on your git host at the scanned commit, and
+  a verdict — *fresh*, *stale* (the file changed after the element's *Verified on* date) or
+  *unverified*. Agents see the same rows on `read_element`. A mark that disappears from the code is
+  retired on the next scan, never left dangling. The token is encrypted on the server and never shown
+  again; the scan never writes to your repository.
+
 ## [1.0.0-rc.56] - 2026-09-13
 
 ### Added
