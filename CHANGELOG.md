@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.59] - 2026-09-14
+
+### Fixed
+- **Saving from the browser works again.** In rc.57 and rc.58 every save made in the web app failed
+  with a server error once it reached the database, whether or not anyone else had changed the
+  model in the meantime. Changes made through MCP, the API or the VS Code extension were not
+  affected. The cause was a transaction boundary lost in the rc.57 change that stopped a browser
+  save from erasing another writer's work; it is back, and a test now checks for it directly.
+
 ## [1.0.0-rc.58] - 2026-09-13
 
 ### Added
