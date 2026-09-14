@@ -56,6 +56,17 @@ The compose file refuses to start without them — there are no insecure default
 Docker Desktop uses WSL2 as its engine, but it does **not** give you a Linux shell — the
 distributions it installs are internal. **PowerShell needs nothing extra**, so start there.
 
+**Before you load anything, check the engine is the Linux one and is running:**
+
+```powershell
+docker info --format "{{.OSType}} {{.Architecture}}"
+```
+
+It must print `linux x86_64`. If it prints `windows`, Docker Desktop is in Windows-containers
+mode — switch with the tray icon's *Switch to Linux containers…*. If it errors, the engine is not
+running yet; wait for the whale icon to go steady. A `docker load` that waits a long time and then
+fails with an API error mentioning Linux images is this, not the bundle.
+
 Two things differ in PowerShell. Download the compose file with `curl.exe`, not
 `curl`, which PowerShell aliases to `Invoke-WebRequest`. And `openssl` is not on Windows, so
 generate the three secrets from .NET's cryptographic source:
