@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.60] - 2026-09-14
+
+### Fixed
+- **Saving from the browser no longer removes attachments, favorites or comments.** Until now a
+  save made in the web app rewrote the project's elements from scratch behind the scenes, and the
+  database took the element's attachment rows and favorites with it — silently, on every save —
+  while a comment on any element made the save fail outright. A save now updates elements in place
+  and only marks removed ones as deleted, so nothing attached to an element is touched by saving.
+  The attachment files themselves were never lost on an installation's database; if you saved a
+  project with attachments from the browser before this version, the rows can be rebuilt from the
+  stored files — contact support with the project name. Elements you delete in the app remain in
+  the database as deleted records from now on, as the rest of the product already did.
+
 ## [1.0.0-rc.59] - 2026-09-14
 
 ### Fixed
