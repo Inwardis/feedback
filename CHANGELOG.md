@@ -7,6 +7,25 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.61] - 2026-09-14
+
+### Fixed
+- **Typing in a note no longer lags on a large diagram.** Every character typed in an element's
+  notes used to make the canvas re-route every connection on the current view and redraw every
+  box, so on a view with a few hundred elements each keystroke cost about a quarter of a second
+  and fast typing queued up. Editing a property now touches only that element: the picture is
+  re-routed when something moves, not when something is typed, and clicking between elements on
+  a large view is immediate for the same reason. A big note is also serialized once per
+  keystroke rather than twice.
+- **Comment badges appear on large projects.** The request that counts open comment threads sent
+  every element id in the address, and on a project above roughly two hundred elements the server
+  refused it before answering, so the 💬 badges on canvas boxes and explorer rows, and the count
+  on the Review button, never showed there. The ids now travel in the request body. When a count
+  cannot be fetched the badges are hidden rather than showing old numbers.
+- **No more request per keystroke.** The badge refresh was also triggered by every property edit,
+  sending the whole project's element ids on each keystroke; it now runs only when elements are
+  added, removed or moved, or when a comment changes.
+
 ## [1.0.0-rc.60] - 2026-09-14
 
 ### Fixed
