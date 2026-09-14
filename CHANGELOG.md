@@ -7,6 +7,34 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.62] - 2026-09-14
+
+### Added
+- **Agents can revise and clone templates.** Over MCP, `update_template` replaces a template's
+  definition with the same validation the admin page applies, and `clone_template` copies one
+  under a new name to make a variant. Both need an administrator's API key, and a template that
+  projects already use is not rewritten unless you say so explicitly. Deleting a template stays
+  an action in Admin › Templates.
+- **Agents can colour a box.** `update_element` and `create_element` take a `color` for the
+  element on that view, the same per-view colour you pick from the canvas context menu, so the
+  canvas, the exports and server-rendered pictures all show it. Passing no colour resets it.
+  The agent guide now describes both of these.
+
+### Fixed
+- **Quieter server log.** A browser tab closing or reloading while connected to a project's live
+  change feed was logged as an unhandled error with a full stack trace, on every installation.
+  It is now recorded at debug level only.
+- **A malformed request body is answered as a client error.** Sending JSON the server cannot read
+  used to produce a generic server error and a stack trace in the log. It now answers 400 and
+  names the field and the value it could not read.
+- **Comment badges stay while you create elements.** Creating an element in the browser made the
+  comment-count refresh fail until the next save, because the new element's temporary id was sent
+  to the server. Unsaved elements are no longer included, and one unknown id no longer fails the
+  whole request.
+- **The Create Project dialog scrolls.** With the full template list the dialog outgrew smaller
+  screens and the Create button sat below the bottom edge. The fields now scroll inside the dialog
+  and the button stays reachable, as the Manage Templates dialog already did.
+
 ## [1.0.0-rc.61] - 2026-09-14
 
 ### Fixed
