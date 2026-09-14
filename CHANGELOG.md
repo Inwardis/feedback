@@ -7,6 +7,26 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.63] - 2026-09-14
+
+### Added
+- **An activity row is a place to go.** In the View Activity panel, click a line about an element
+  and the canvas selects it on a view that draws it, or opens its read-only card when it lives in
+  another project, the same landing as a click in the Explorer. Lines about something deleted, or
+  about a project or a version, stay plain text: there is nothing to land on.
+
+### Fixed
+- **The top-right corner of a box has one owner.** The favourite star, the comment count and the
+  hidden-links pill used to be placed independently and overlapped each other on narrow boxes, and
+  the row of property badges could run underneath them. They now share one row in the corner and
+  the property row stops where that row begins, at every box width the canvas allows.
+- **The View Activity and Review panels scroll.** A long activity trail or a long review list was
+  cut off at the bottom of its side panel with no scrollbar. Each list now scrolls inside its
+  panel, and the "Load more" button stays reachable.
+- **Windows install check.** The installation guide now says how to confirm Docker Desktop is in
+  Linux-containers mode before loading the bundle, since the error that mode produces reads like a
+  broken download.
+
 ## [1.0.0-rc.62] - 2026-09-14
 
 ### Added
