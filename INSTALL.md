@@ -20,7 +20,7 @@ fourth (`hocuspocus`), off by default.
    match the bundle or `docker compose up` fails with *image not found*:
 
    ```
-   INWARDIS_VERSION=1.0.0-rc.63   # ← the version from your download page / bundle filename
+   INWARDIS_VERSION=1.0.0-rc.64   # ← the version from your download page / bundle filename
    ```
 4. **Set up email** (below) — optional, recommended for a team install: invitations,
    notifications and (if you turn it on) login codes go out by email. Login itself works
@@ -141,7 +141,7 @@ production-sane.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.63`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
+| `INWARDIS_VERSION` | **required** | The version of your downloaded bundle (e.g. `1.0.0-rc.64`). The compose file pins all three image tags by it and refuses to start without it — a wrong value fails with *image not found* instead of silently running an older image. Verify at `/actuator/info`. |
 | `SPRING_DATASOURCE_URL` | set by compose | JDBC URL of the PostgreSQL database |
 | `SPRING_DATASOURCE_USERNAME` / `_PASSWORD` | set by compose | Database credentials |
 | `INWARDIS_DATA_DIR` | `/app/data` (image) | License key location — must be on a volume |
@@ -170,6 +170,7 @@ production-sane.
 |----------|---------|---------|
 | `SMTP_HOST` / `SMTP_PORT` | unset (email off) / `1025` | Your mail relay (see **Email setup** above) |
 | `INWARDIS_AUTH_MFA_ENABLED` | `false` | Email 6-digit login codes — needs a working `SMTP_HOST` |
+| `INWARDIS_AUTH_REGISTRATION_ENABLED` | `true` | Self-registration on the login page. The first person to register on a fresh install becomes its administrator, so leave it on until that has happened; later registrants are ordinary members. Set to `false` to close the door — an invitation from **Admin → Users** still creates the account, with whatever role the invitation carries |
 | `SMTP_USERNAME` / `SMTP_PASSWORD` | empty | Relay credentials |
 | `SMTP_AUTH` / `SMTP_STARTTLS` | `false` / `false` | Enable for authenticated/TLS relays |
 | `NOTIFICATIONS_ENABLED` | `true` | In-app + email notifications |
