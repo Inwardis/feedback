@@ -7,6 +7,33 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.64] - 2026-09-15
+
+### Added
+- **Every agent says whose it is.** Wherever an agent appears — the View Activity trail, the
+  change toast, the pill on a box someone just touched, the properties panel's *Last changed by*,
+  a comment's signature, the Review panel and `get_changes` over MCP — it is named by its API key
+  **and the person the key belongs to**: *Agent claude-code (Anna's)*. A team with several keys
+  can now read its own trail, and an agent reading it over MCP gets the owner as `actor.owner`.
+- **The template editor tells you what a custom shape will lose.** Under the YAML in Admin ›
+  Templates, a box lists, per custom shape, the elements and attributes the SVG sanitizer will
+  not draw, so a glyph with a part missing is explained while you write it. The custom-shapes
+  guide now lists exactly which elements and attributes are drawn.
+- **Self-registration can be switched off.** `INWARDIS_AUTH_REGISTRATION_ENABLED=false` hides
+  the register link on the login page; the first person to register still becomes the
+  administrator. Documented in the installation reference and shown as a commented line in the
+  compose file.
+
+### Fixed
+- **Custom-shape SVG is filtered by an allow-list.** Only known drawing elements and
+  presentation attributes are copied into the canvas, exports and server-rendered pictures;
+  anything else — including elements the previous filter did not know about, scripts under
+  another spelling, comments and external references — is left out. Every built-in shape draws
+  exactly as before.
+- **An activity row lands on the canvas.** Clicking a line in View Activity now also scrolls the
+  canvas to the element and selects it, the way an Explorer click does, instead of only switching
+  the view.
+
 ## [1.0.0-rc.63] - 2026-09-14
 
 ### Added
