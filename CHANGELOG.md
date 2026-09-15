@@ -7,6 +7,36 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.65] - 2026-09-15
+
+### Added
+- **A template can describe its notation's layout.** A template may declare `layoutRules` —
+  *stack* (these element types are placed in a line, in model order), *equalize* (they share the
+  widest or tallest of them) and *bands* (a container's children fill it as rows) — and
+  auto-layout honours them, on the canvas, over `apply_layout` (`layered` and `elk`) and in
+  server-rendered pictures alike. The BPMN template declares them: pools now stack vertically at
+  one width and lanes fill their pool as bands, instead of being packed side by side like any
+  other boxes.
+- **Straight or orthogonal lines, three ways to choose.** A relation can be drawn as one straight
+  segment between its boxes or as the orthogonal, waypointed route. The template's relation type
+  sets the default (BPMN sequence and message flows are straight), the view can override it for
+  every line (right-click the view tab → *Routing*), and one line can override the view
+  (right-click the line → *Route*). Agents set the same three over MCP (`update_view {routing}`,
+  `update_relation {viewId, routing}`). A straight line ignores its waypoints but keeps them.
+- **`apply_layout` says what it moved, and can just say it.** The response lists every box the
+  layout moved or resized, with the distances; `dryRun: true` reports the same list and changes
+  nothing — the check to run before laying out a view someone arranged by hand.
+- **A container moves with what it contains.** Dragging a pool, lane or any container on the
+  canvas carries every element placed inside it; `update_element {position}` over MCP does the
+  same and reports how many came along. Resizing a container leaves its contents where they are.
+- **A line can be clicked anywhere along its route**, including inside a pool or lane where the
+  box used to take the click. The picture is unchanged; only the click surface moved above the boxes.
+
+### Fixed
+- **Server-rendered pictures honour the view's *Relation labels* setting.** A view set to
+  *names only* or *none* had been rendered with every label by `render_view`, embeds and the VS
+  Code preview since 2026-09-09; the setting was stored and sent but dropped at the last step.
+
 ## [1.0.0-rc.64] - 2026-09-15
 
 ### Added
