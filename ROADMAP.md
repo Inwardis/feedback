@@ -20,11 +20,11 @@ or 👍 an existing one to help us rank what's next.
 The core product - people and agents share all of it:
 
 - **Hierarchical modelling** — model vs view separation, drill-down, view anchors, multi-view.
-- **24 built-in templates** — Simple Drawing, Database Design, Flowchart, Infrastructure,
+- **25 built-in templates** — Simple Drawing, Database Design, Flowchart, Infrastructure,
   UML Class, API Design, C4 Model, Event-Driven Architecture, Deployment Topology, Mind Map,
   JSON Structure, UML State Machine, Issues, BPMN Process, UML Use Case, UML Activity, Git,
   Org Chart, Capability Map, Concept Map, Requirements, Risk Register, Business Model Canvas,
-  and an icon-based Deployment template.
+  Storyboard (a workflow as one picture), and an icon-based Deployment template.
 - **Author your own templates** — a YAML DSL for domains, shapes, properties, and rules,
   including custom SVG shapes.
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
