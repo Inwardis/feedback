@@ -7,6 +7,25 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.67] - 2026-09-19
+
+### Changed
+- **Mix templates freely.** Any element can now hold a hierarchy from another template in the
+  project — a risk register under a project phase, notes inside a table. Drop an element of another
+  template onto a container on the canvas, pick any element in *Move to…*, or let an agent put it
+  there: nothing refuses it. A template's usual nesting is now a guide rather than a rule — when you
+  nest something a template does not usually hold, Inwardis does it and tells you so in one line.
+  *Move to…* no longer greys out targets for their type; within one template it marks the unusual
+  ones *not usual here*.
+- **Template authors: `canContain: ["*"]`** marks a type that usually holds anything.
+- **Agents are told, not refused.** Over MCP, an unusual nesting is stored and the response carries
+  a `containmentNotices` line; editing a built-in template now says the change is workspace-wide and
+  points to `clone_template` for a vocabulary of your own.
+
+### Fixed
+- **Refused agent calls are now recorded** in the audit log, with the error code, so an administrator
+  can see what an agent tried and why it did not happen.
+
 ## [1.0.0-rc.66] - 2026-09-19
 
 ### Added
