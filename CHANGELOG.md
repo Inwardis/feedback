@@ -7,6 +7,22 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.68] - 2026-09-19
+
+### Added
+- **Saving a template tells you what its custom shapes will lose.** When a template is saved — in
+  the template editor, over the REST API or by an agent with `create_template` / `update_template` —
+  the answer names each SVG element or attribute that will be left out when the shape is drawn,
+  the same list the template editor shows. The save is never refused for it.
+
+### Fixed
+- **A container shows how many children it has.** A folded container (a pool, a boundary, a risk
+  category) now shows its child count in the header, and an open one shows how many of its children
+  are not placed on the current view — before, both looked like empty boxes.
+- **Children are listed in a stable order.** Where no order has been set — for example elements an
+  agent created — a box's child rows, the explorer and exports now list children A–Z by name
+  instead of in whatever order they loaded. An order you or an import set is kept.
+
 ## [1.0.0-rc.67] - 2026-09-19
 
 ### Changed
