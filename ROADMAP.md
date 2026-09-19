@@ -50,15 +50,11 @@ The core product - people and agents share all of it:
 - **In-app help** — the complete user manual, searchable, right inside the app.
 - **On-premise** — runs entirely on your infrastructure via Docker; your data never leaves it.
 
-## 🚧 Next — around launch
-
-- Production hardening and general-availability launch.
-- Real-time collaboration (live multi-user editing, presence) graduating from preview.
-
-## 🔭 Later — exploring
+## 🔭 Coming — exploring
 
 Direction, not commitments — your feedback moves these up or down:
 
+- **Real-time collaboration** — live multi-user editing with presence, graduating from preview.
 - **Guided specification modelling** — domain packs that know what a complete specification
   contains, and an agent that interviews you to fill the gaps before the technical modelling starts.
 - **Deeper Sparx EA (XMI) import** — more diagram types and dialect coverage, for teams migrating
