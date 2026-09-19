@@ -7,6 +7,37 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.66] - 2026-09-19
+
+### Added
+- **Resolved comments stay visible.** A resolved thread no longer disappears: it folds under the
+  open ones as *▸ N resolved*, one line each, and opens to the full thread with *Reopen*. The
+  header counts both (*2 open · 3 resolved*), a resolved passage is highlighted in the notes only
+  while the fold is open, and the Review pane works the same way. An open thread is always listed
+  in the Review pane, however many resolved ones the project has.
+- **Comment from the element.** Right-click an element on the canvas or in the explorer and choose
+  *Comment…*: the element is selected, the Properties panel opens and the cursor is in the comment box.
+- **Agents see open comments in what they already read.** `read_element` returns the text of the
+  element's open threads (`includeResolved: true` adds the resolved ones), `search_elements` hits
+  say how many threads are open, `project_brief` has a *Comments* section listing the threads that
+  mention the agent's user, and an agent editing an element with open threads is told so — a
+  question left on the model reaches the agent working on it.
+- **The Storyboard template.** A workflow as one picture: *Steps* in a row, the *People* and
+  *Agents* who do them, the *Tools* and *Repositories* they use, and *Notes*; a step can hold a
+  sub-storyboard to drill into. Auto-layout puts the steps in one line at one height. The
+  *Getting Started* page of the manual opens with a storyboard of the basic Inwardis loop, drawn by
+  the product.
+
+### Fixed
+- **A template's layout rules now apply on a flat view** and to the element types they name even
+  when other types share the level — before, they only took effect inside containers where every
+  element was named.
+- **Custom shapes created or laid out by an agent are sized like on the canvas.** `create_element`
+  honours a custom shape's declared size, and `apply_layout` makes room for an icon shape's label
+  and notes instead of giving it a plain 140×60 box.
+- **`apply_layout` no longer leaves stale diagonal lines behind** when the layout could not route a
+  relation — the line is re-routed fresh.
+
 ## [1.0.0-rc.65] - 2026-09-15
 
 ### Added
