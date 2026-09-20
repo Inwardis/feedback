@@ -7,6 +7,20 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.71] - 2026-09-20
+
+### Added
+- **The VS Code extension is easier to find.** It has its own section in the manual and in-app help,
+  a link in the Help footer, and a download link you can click — before, it was reachable only from
+  the API Keys dialog.
+- **A chapter on working model-first.** The practice Inwardis is built with — why a model rather
+  than documents, the habits that keep one true, and how to adopt it — in the manual and the in-app
+  help.
+
+### Fixed
+- **Quieter error log.** A live update stream reaching the end of its normal life was recorded as an
+  unhandled error, which filled the admin error log with entries that needed no action.
+
 ## [1.0.0-rc.70] - 2026-09-20
 
 ### Added
