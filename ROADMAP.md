@@ -28,7 +28,7 @@ The core product - people and agents share all of it:
 - **Author your own templates** — a YAML DSL for domains, shapes, properties, and rules,
   including custom SVG shapes.
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
-- **Import** — OpenAPI/Swagger, JSON samples, Sparx EA (XMI), draw.io, Mermaid, CSV, Structurizr.
+- **Import** — OpenAPI/Swagger, JSON samples, XMI (UML), draw.io, Mermaid, CSV, C4 DSL.
 - **Export** — SVG, PNG, JSON, YAML, Markdown, Mermaid, and ITL round-trip.
 - **Versioning** — Git-backed history, diffs, preview, restore, and remote push/merge.
 - **Sharing & access** — projects, organizations, teams, public links, and effective-access
@@ -57,8 +57,7 @@ Direction, not commitments — your feedback moves these up or down:
 - **Real-time collaboration** — live multi-user editing with presence, graduating from preview.
 - **Guided specification modelling** — domain packs that know what a complete specification
   contains, and an agent that interviews you to fill the gaps before the technical modelling starts.
-- **Deeper Sparx EA (XMI) import** — more diagram types and dialect coverage, for teams migrating
-  off EA.
+- **Deeper XMI import** — more diagram types and dialect coverage.
 - **Embeds & living documentation** — diagrams that stay in sync inside your docs.
 
 ---
