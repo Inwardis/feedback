@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.72] - 2026-09-20
+
+### Fixed
+- **Links inside the help now work.** A cross-reference from one help page to another used to lead
+  nowhere and take you out of the app; it now opens that page in the help drawer, at the right
+  section. Links to developer specifications, which are not part of the help, read as plain text
+  instead of pretending to be clickable.
+
+### Added
+- **The VS Code extension's features in one place.** Its help section now lists what it gives you —
+  the model as files, editable prose, attachments, searching the model, the commands that link code
+  to model elements, and where to look when something goes wrong.
+
 ## [1.0.0-rc.71] - 2026-09-20
 
 ### Added
