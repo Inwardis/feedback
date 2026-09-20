@@ -14,6 +14,9 @@ It runs on-premise via Docker; your data stays on your infrastructure.
 - **[INSTALL.md](INSTALL.md)** — how to install Inwardis (Docker Compose, the three secrets,
   email setup for login codes, every environment variable).
 - **[ROADMAP.md](ROADMAP.md)** — where the product is heading (available now / next / later).
+- **[METHOD.md](METHOD.md)** — *Working model-first*: the practice Inwardis is built with, and the
+  one the product teaches the AI agents that work in a model. Optional, and generated from the
+  product manual — take the parts that fit.
 - **Issues** — [report a bug](https://github.com/inwardis/feedback/issues/new?template=bug_report.yml)
   or [request a feature](https://github.com/inwardis/feedback/issues/new?template=feature_request.yml).
 - **[Discussions](https://github.com/inwardis/feedback/discussions)** — questions, ideas, and
