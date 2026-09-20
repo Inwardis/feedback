@@ -7,6 +7,31 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.69] - 2026-09-20
+
+### Added
+- **What an AI agent changes becomes a version by itself.** Until now an agent's work reached the
+  version history only when someone next saved. Everything an agent writes to a project is now kept
+  as one version, made when it stops working (or at the latest half an hour into a long session),
+  named after the agent and the person whose key it is, and listing what it changed. If the agent
+  leaves a session note, that note becomes the version's message. Imports are always a version of
+  their own, so one can be undone in a single step — and a project that has only ever been edited
+  by an agent gets a history without anyone opening it. An administrator can switch this off.
+- **Changed text reads as a diff.** In *Compare versions*, a note or description that changed is now
+  shown line by line, so you see the sentences that moved instead of two values cut short.
+
+### Fixed
+- **Re-layout keeps everything the view shows.** Arranging a view now lays out every box on it, at
+  every depth — boxes inside a container stay inside it — and what you set on the view survives:
+  colours, folded boxes, hidden relations, *Show Children*. Before this, boxes below the level you
+  were on could vanish from the view.
+- **The layout selector shows the view's own algorithm.** A view arranged by an agent no longer
+  opens with an empty selector and no longer falls back to a plain grid when you press *Re-layout*;
+  the spacing the view was arranged with is reused.
+- **Opening a level no longer counts as a change.** Drilling into an element that has no view of its
+  own used to leave the project looking edited, so switching projects asked about unsaved changes
+  nobody had made — and saving stored a view nobody asked for.
+
 ## [1.0.0-rc.68] - 2026-09-19
 
 ### Added
