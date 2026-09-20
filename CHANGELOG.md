@@ -7,6 +7,16 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.70] - 2026-09-20
+
+### Added
+- **The knowledge kit now teaches how work gets done, not only what to write down.** A project's
+  *Phases* board carries a second rule for the AI agents working in it: write the plan before
+  building and keep it, break your own fix and watch each new check fail before trusting it, name in
+  the title everything the work closes, and before closing search the model for the words naming
+  what changed, so the prose that still describes the old behaviour gets fixed. The in-app help
+  (*Keeping a Project's Knowledge*) explains why each of these exists.
+
 ## [1.0.0-rc.69] - 2026-09-20
 
 ### Added
