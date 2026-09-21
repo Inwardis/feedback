@@ -7,6 +7,42 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.73] - 2026-09-21
+
+### Added
+- **Activity has a home of its own, under the canvas.** A small **Activity** tab at the bottom
+  centre of the canvas opens a wide pane with what has been happening in the project — and it
+  follows you when you open another project. If the split notes are open too, the pane gets two
+  tabs, *Notes* and *Activity*. **View Activity** on an element opens the same pane for just that
+  element, with a chip to go back to the whole project. Whether it is open, its height and your
+  tab are remembered. The old Activity panel in the right sidebar is gone.
+- **One line per hour instead of hundreds.** The thread shows one line per person or agent, per
+  place, per hour of *your* clock — *Agent claude-code (Anna's) made 14 changes in Product
+  Architecture › Backend, 14:00–15:00* — and opens into the individual changes when you click it.
+  Comments and agents' summaries are never folded into a count; they stand on their own.
+- **It keeps itself up to date.** While the pane is open it refreshes as people and agents work —
+  without reloading your canvas, and even while you have unsaved changes.
+- **A timeframe slider** sets how far back the thread reads, from the last hour to 30 days.
+- **Click a line to see the element; double-click to go where it lives** — including in another
+  project (you are asked first if you have unsaved changes).
+- **An agent's closing summary appears in the thread** — quoted, under the agent's name and the
+  person whose key it uses, **beside a count of what it actually changed**, so you can read what it
+  says it did and check it in the same glance. It also names the version those changes were saved as.
+- **For AI agents:** `get_changes` can return the same hour-by-hour brief a person reads
+  (`groupBy: "hour"`, with `until` and `zone`), and an agent can ask what it has changed and not yet
+  summarised (`my_recent_activity` with `only: "unsummarised"`).
+- **A reminder hook for Claude Code, as a downloadable file.** An optional hook asks a session for a
+  short summary when its changes have piled up — occasionally, never every turn. It asks your
+  Inwardis server rather than counting on your machine, so changes made through scripts are seen
+  too, and it needs no configuration. It is in the public repository under `agents/claude-code/`,
+  and printed in full in the help.
+
+### Fixed
+- **Two summaries in one session no longer count the same changes twice**, and a project where
+  nothing changed since the last summary no longer gets a second, empty one.
+- **The activity thread now shows the project you are looking at.** It used to keep showing the
+  previous project's activity after you switched.
+
 ## [1.0.0-rc.72] - 2026-09-20
 
 ### Fixed
