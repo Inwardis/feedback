@@ -7,6 +7,34 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.74] - 2026-09-21
+
+### Fixed
+- **"Get a license" now opens the pricing page.** The link in the trial-ended banner, in the
+  expiry warning and in the licence dialog led to a page that does not exist. If your trial has
+  ended, this is the link you need — it works now.
+- **Agents are told when a project has a steward's constraint — every time.** Creating a relation
+  without placing it on a view, and deleting an element or relation, did not show an agent the
+  project's CONSTRAINT notice, and left no trace of which project the call was about. Both do now.
+- **A version is named only by a summary of its own project.** An agent that worked in two
+  projects and summarised one of them used to give the other project's version that summary's name.
+
+### Added
+- **Agents notice that others are working — with nothing to install.** When somebody else has
+  changed a project since an agent last looked — another agent, a person saving in the app, a file
+  being attached — the agent's next tool answer about that project says so: *3 changes by 2 others
+  since you last looked*, with what to call to see them. Nothing is said when nothing changed, and
+  an agent is never told about its own work.
+- **An agent's summary can say which projects it is about** (`about` on `record_session_note`). It
+  is then shown only there, and only those projects' versions take its name. Useful when more than
+  one agent uses the same API key — though the better fix is the next item.
+- **One key per agent.** The API key dialogs now say so, and why: everything a key writes is shown,
+  summarised and versioned as one hand, so two agents sharing a key cannot be told apart.
+- **In the Activity pane:** *What it changed here: 3 elements updated* under an agent's summary
+  now opens into those changes, each a link to its element. And selecting an element — on the
+  canvas, in the Explorer, or by clicking a line in the thread — turns the pane to its notes; the
+  Activity tab is one click back, and stays in front across a reload.
+
 ## [1.0.0-rc.73] - 2026-09-21
 
 ### Added
