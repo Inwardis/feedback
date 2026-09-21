@@ -7,6 +7,23 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.75] - 2026-09-21
+
+### Fixed
+- **The canvas stays on the view you are working in.** When someone else — a colleague or an
+  agent — changed the project you had open, or your save merged with their changes, the canvas
+  went back to the project's first view and re-fitted it, while your selection still named an
+  element that view does not show. It now refreshes in place: same view, same zoom and position,
+  same selection. If the other person deleted something you had selected, it simply leaves the
+  selection; if they deleted the view itself, you are taken to the first view and told why.
+
+### Changed
+- **The manual says prices exclude VAT.** *Licensing* now explains it as the pricing page and the
+  checkout do: a company with an EU VAT ID pays the price shown, a private buyer in the EU sees
+  VAT added as its own line before paying, and outside the EU no VAT is added.
+- **Working model-first, reworded.** The chapter adds *point at the exact thing* and *design it
+  first, and keep the plan*, and closes on what matters in practice: code stays linked to the model.
+
 ## [1.0.0-rc.74] - 2026-09-21
 
 ### Fixed
