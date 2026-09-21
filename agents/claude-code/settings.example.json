@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      { "matcher": "mcp__inwardis__.*",
+        "hooks": [{ "type": "command", "command": "~/.claude/hooks/inwardis-count-writes.sh" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "~/.claude/hooks/inwardis-summary-gate.sh" }] }
+    ]
+  }
+}
