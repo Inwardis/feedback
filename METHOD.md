@@ -25,9 +25,10 @@ tell it to make that one clearer — it opens what you are looking at, not "the 
 that file". And because the design is in the model before it is code, that question can be asked
 while it is still cheap to answer.
 
-**The model is the shared context, not a source that code is compiled from.** Nothing is
-generated from it. Code stays linked to it — a comment mark ties a class to the element that
-describes it — so each can be checked against the other, and neither pretends to be the other.
+**Code stays linked to the model.** A comment mark ties a class to the element that describes
+it, so each can be opened from the other and checked against it — and when the code has moved on
+since its description was last verified, that shows. An agent will often write code *from* what
+the model says; that is the point of a shared context.
 
 ## The practice
 
@@ -96,8 +97,6 @@ findings filed immediately, guards seen to fail, and the sweep before closing.
 
 ## What this is not
 
-- **Not model-driven development.** Nothing is generated from the model; no transformation
-  chain, no round-trip. The model describes and links; the code stays the code.
 - **Not a methodology to adopt wholesale.** There is no certification, no ceremony and no
   required order. Take the parts that fit.
 - **Not a substitute for tests, reviews or thinking.** It is a way to keep what you learned
