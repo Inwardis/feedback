@@ -17,6 +17,9 @@ It runs on-premise via Docker; your data stays on your infrastructure.
 - **[METHOD.md](METHOD.md)** — *Working model-first*: the practice Inwardis is built with, and the
   one the product teaches the AI agents that work in a model. Optional, and generated from the
   product manual — take the parts that fit.
+- **[agents/claude-code/](agents/claude-code/)** — small, optional Claude Code hooks for people who
+  let an agent work on a model: a reminder to leave a summary when changes have piled up. Files you
+  can read, download and run; the product's test suite runs the same ones.
 - **Issues** — [report a bug](https://github.com/inwardis/feedback/issues/new?template=bug_report.yml)
   or [request a feature](https://github.com/inwardis/feedback/issues/new?template=feature_request.yml).
 - **[Discussions](https://github.com/inwardis/feedback/discussions)** — questions, ideas, and
