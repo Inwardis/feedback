@@ -31,7 +31,8 @@ Read it before you install it — that is the point of shipping it as a file.
 ### Install
 
 Needs `jq` and `curl`, Inwardis 1.0.0-rc.73 or later (the first release to answer the question —
-against an older one the hook simply stays silent), and the Inwardis MCP server registered in
+against an older one the hook simply stays silent; the `about` argument its message mentions needs
+1.0.0-rc.74), and the Inwardis MCP server registered in
 Claude Code under the name `inwardis`. **Nothing else to configure:** the hook reads the server's
 URL and key from that same registration (`.mcp.json` in the project, or `~/.claude.json`), so it
 asks about exactly the key your agent writes with.
