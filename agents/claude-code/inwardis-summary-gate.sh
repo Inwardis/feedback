@@ -38,6 +38,6 @@ if [ "$n" -gt 0 ] && { [ "$n" -ge "$after_writes" ] || [ "$age" -ge "$after_seco
 if [ "$due" = yes ]; then
   where=$(jq -r '[.projects[] | "\(.name) (\(.writes))"] | join(", ")' <<<"$owed")
   jq -cn --arg n "$n" --arg w "$where" \
-    '{decision:"block", reason:("This session has made \($n) change\(if $n == "1" then "" else "s" end) to the Inwardis model that no summary covers yet — \($w). Before stopping, call record_session_note with two or three sentences: what you did, and what is unfinished.")}'
+    '{decision:"block", reason:("This session has made \($n) change\(if $n == "1" then "" else "s" end) to the Inwardis model that no summary covers yet — \($w). Before stopping, call record_session_note with two or three sentences: what you did, and what is unfinished. If some of these projects are not yours, another agent is using your key: pass `about` with only the project ids you worked in, and say nothing of the rest.")}'
 fi
 exit 0
