@@ -19,6 +19,12 @@ session starts from nothing, or worse, from a summary of a summary. A model is w
 understanding survives between sessions and between people: the structure, the decisions, the
 reasons, and the open questions — one place both a person and an agent can read and write.
 
+One thing follows that no folder of text files gives you: **you can point at the exact thing.**
+Every element has an address. Copy a link to one and ask the agent *what did you mean here?*, or
+tell it to make that one clearer — it opens what you are looking at, not "the third paragraph of
+that file". And because the design is in the model before it is code, that question can be asked
+while it is still cheap to answer.
+
 **The model is the shared context, not a source that code is compiled from.** Nothing is
 generated from it. Code stays linked to it — a comment mark ties a class to the element that
 describes it — so each can be checked against the other, and neither pretends to be the other.
@@ -41,8 +47,9 @@ project actually cost.
 reason. A decision nobody can find is a decision that gets re-made differently, usually by
 someone who was not there the first time.
 
-**Plan before building, and keep the plan.** What the work is for, what it will change, how it
-will be checked — written before anything changes. A plan written afterwards is a description.
+**Plan before building, and keep the plan.** Design the feature in the model before it is code —
+the parts, what they touch, what they must not break. What the work is for, what it will change,
+how it will be checked — written before anything changes. A plan written afterwards is a description.
 Written first, it is what you check the result against, and it is where a reader later finds
 what you decided *not* to do.
 
