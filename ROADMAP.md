@@ -30,12 +30,12 @@ The core product - people and agents share all of it:
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
 - **Import** — OpenAPI/Swagger, JSON samples, XMI (UML), draw.io, Mermaid, CSV, C4 DSL.
 - **Export** — SVG, PNG, JSON, YAML, Markdown, Mermaid, and ITL round-trip.
-- **Versioning** — Git-backed history, diffs, preview, restore, and remote push/merge.
+- **Versioning** — Git-backed history, diffs, preview, restore, remote push/merge — and several installs joining one repository, ids kept.
 - **Sharing & access** — projects, organizations, teams, public links, and effective-access
   visibility.
 - **Accounts** — built-in auth with email MFA, plus optional OIDC single sign-on (Keycloak,
   Azure AD, …) for on-premise.
-- **AI-assisted modelling** — a built-in MCP server with **40+ tools**: agents read the model
+- **AI-assisted modelling** — a built-in MCP server with **55 tools**: agents read the model
   layer by layer, follow incoming and outgoing relations, search names, types and notes across
   the workspace, create and correct elements, relations and views, lay out, render, import and
   export. Scoped, revocable API keys; every call rate-limited and audited.
