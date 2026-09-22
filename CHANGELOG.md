@@ -7,6 +7,34 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.76] - 2026-09-22
+
+### Added
+- **Several Inwardis installs can share one git repository.** Create a project with
+  *Start from → Join a shared repository* and give the repository's URL and your token: the project
+  is created here with the same ids it has everywhere else, the clone becomes its repository, and
+  from then on Save commits locally, Push fetches and merges first, and Fetch & Merge brings your
+  colleagues' work in — three developers, three installs, one repository. A join is complete or it
+  is refused with what to do first (a template to install, another project to join, a publication
+  with subprojects, which stays one-way); nothing is ever silently left out, because whatever a join
+  dropped the next push would delete for everyone. Comments, favorites, attachment files, permissions
+  and users stay on each install. Also over MCP (`join_git_repository`) and REST (`POST /api/v1/git/join`).
+- **A work item can link to its ticket.** Features, issues and phases (and requirements, constraints,
+  acceptance tests, risks and controls) carry a *Ticket* field: paste the Jira, GitLab or GitHub URL
+  and open it from the properties panel. An item with a ticket shows a small ↗ mark in its corner on
+  the canvas, in exported SVG and PNG, and in rendered figures; clicking it opens the ticket without
+  selecting the box. A recipe for an agent that brings the ticket's comments onto the item is in the
+  public feedback repository under `agents/recipes/`.
+- **Agents are told when to prefer container elements over subprojects.** The primer explains that a
+  project with subprojects publishes its repository one-way and cannot be joined, so a team sharing
+  one repository wants one project with containers unless parts need separate permissions.
+
+### Fixed
+- **A web-address field is a web address or plain text — never anything else.** A value with a
+  scheme other than `http` or `https` is refused on every write, a value without a scheme (`jira.acme/ABC-1`)
+  is kept as text with no open button, and nothing in the product or in an exported file ever links
+  to an address that does not start with `http`.
+
 ## [1.0.0-rc.75] - 2026-09-21
 
 ### Fixed
