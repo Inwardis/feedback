@@ -7,6 +7,23 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.77] - 2026-09-22
+
+### Added
+- **An import can land under an element.** The Import dialog (CSV, draw.io, Mermaid, Structurizr)
+  now says where the subtree goes — *Import under: the element you have drilled into*, or *project
+  root* — so a second schema, a second API or a second diagram becomes one subtree of the model you
+  already have. The Sparx EA wizard offers to import into the open project under the current
+  element: the EA diagrams become views inside it, your own views are untouched, and any template
+  the export needs that the project lacks is added and named before you confirm. Agents get the
+  same over MCP: `import_model` and `reverse_engineer_database` take a `parentId`.
+
+### Fixed
+- **Templates are listed alphabetically** in Create Project, the admin Templates page, the toolbox
+  and over MCP, so related templates sit together; custom templates take their place by name. The
+  toolbox only changes what you see — which template a bare type name resolves against is still the
+  order in which the project composed them.
+
 ## [1.0.0-rc.76] - 2026-09-22
 
 ### Added
