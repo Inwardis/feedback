@@ -28,7 +28,7 @@ The core product - people and agents share all of it:
 - **Author your own templates** — a YAML DSL for domains, shapes, properties, and rules,
   including custom SVG shapes.
 - **Dual authoring** — drag-and-drop canvas *and* a human-readable textual language (ITL).
-- **Import** — OpenAPI/Swagger, JSON samples, XMI (UML), draw.io, Mermaid, CSV, C4 DSL.
+- **Import** — OpenAPI/Swagger, JSON samples, XMI (UML), draw.io, Mermaid, CSV, C4 DSL, Jira projects (tickets, comments, attachments; re-runnable).
 - **Export** — SVG, PNG, JSON, YAML, Markdown, Mermaid, and ITL round-trip.
 - **Versioning** — Git-backed history, diffs, preview, restore, remote push/merge — and several installs joining one repository, ids kept.
 - **Sharing & access** — projects, organizations, teams, public links, and effective-access
