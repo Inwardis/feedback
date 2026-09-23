@@ -7,6 +7,46 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.1] - 2026-09-23
+
+A maintenance release with the same product as 1.0.0, promoted from release candidate 80; nothing changes in what you use day to day, and installing it needs no migration step. For reference, what Inwardis is: Inwardis is a modelling and
+diagramming tool for people and AI agents in which **everything is a hierarchy**: elements contain
+elements, so you model a system once and drill down through it at every level of abstraction, and
+every picture is a view of that one model. It runs on your own infrastructure with Docker; nothing
+leaves it.
+
+### What is in it
+- **One model, many views.** Elements, relations and containment live in the model; a view places
+  some of them and draws them. Views nest with the hierarchy, a view can be curated by hand or laid
+  out automatically, and references into other projects draw as ghost elements.
+- **25 built-in templates** — a simple drawing, database design, flowcharts, C4, UML (class, state
+  machine, use case, activity), BPMN, event-driven and deployment architectures, mind maps, org
+  charts, capability maps, concept maps, requirements, risk registers, a business model canvas,
+  issues, git history, JSON structure and storyboards — and your own templates written in YAML.
+- **Agents as first-class users.** An MCP server lets any MCP client read, build, lay out, render
+  and verify models with an API key; `learn` teaches an agent the concepts first. Every change
+  shows who made it — a person or an agent, and whose agent — in a live activity thread, and
+  agents see each other's changes.
+- **History in git.** Every save is a version: history, diffs, restore, push to a remote, and
+  several installs joining one shared repository. Comments with threads, mentions and resolution on
+  every element; code references linking an element to the source files that implement it.
+- **In and out.** Import Sparx EA XMI, OpenAPI descriptions, JSON samples, Jira projects (tickets,
+  comments, attachments) and git repositories, under any element of an existing project or as a
+  new one. Export SVG, PNG, JSON, YAML, Markdown, Mermaid and the ITL text format, or embed a
+  server-rendered SVG that stays current.
+- **VS Code extension**, bundled with the download: a model mounted as a folder, notes editable
+  in the editor, diagrams as SVG, search across the model.
+- **Full-text search** over names, notes and attachment text across the whole workspace, ranked,
+  from the explorer and over MCP.
+- **Runs on-premise.** One Docker Compose file, three images and PostgreSQL; sign-in with e-mail
+  codes or your OpenID Connect provider; an admin panel with users, sharing, audit log, feature
+  flags, templates, metrics, API keys and a complete workspace backup and restore.
+- **Licensing.** A 30-day trial on first start. A paid licence never expires and the product never
+  calls home; the subscription buys access to new versions, and every version you were entitled
+  to stays downloadable.
+
+Internal hardening only: a workspace backup now needs a full license (trials keep every export), and the trial sign-up treats every spelling of one mailbox as one person. The release candidates below are the road here.
+
 ## [1.0.0-rc.80] - 2026-09-23
 
 ### Changed
