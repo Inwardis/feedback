@@ -7,6 +7,33 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.78] - 2026-09-23
+
+### Added
+- **Import a Jira project.** *Import → Jira* (or *Create Project → Start from → A Jira project*)
+  takes a saved Jira search or fetches your site live, and turns the project into an Issues model:
+  epics as features, tickets nested under them, descriptions as notes, comments as comment threads
+  with their Jira author, attachments carried over, and *blocks* / *relates to* links as relations.
+  Jira Cloud and Jira Data Center both work. Run the same import again later and it updates what
+  changed instead of duplicating — the ticket link is the key. Agents get the same over MCP.
+- **Your Jira token, once.** The token you type is kept for your later imports from that site —
+  encrypted on the server, used only by your own imports — the way a git remote's token is. The next
+  import prefills the site and offers *Replace* and *Forget*; *API Keys → Saved Jira tokens* lists
+  and forgets them.
+- **Search reaches into attachments.** Ctrl+F and the agents' search now match the text of attached
+  text, Markdown, JSON, YAML and PDF files, and a hit from a file says which one.
+
+### Changed
+- **Search runs in the database.** Every project you can read is searched in one query, ranked, with
+  snippets, so the result is a real rank rather than a scan that stopped early; the two notices that
+  used to say the search had scanned only part of the workspace are gone. Names match by substring,
+  notes and other text by word; several words must all appear, `"a phrase"` is exact, `-word`
+  excludes.
+
+### Fixed
+- Deleting a project could fail with a server error after the Jira importer was added; fixed before
+  release, with a guard that reads every database query's annotations.
+
 ## [1.0.0-rc.77] - 2026-09-22
 
 ### Added
