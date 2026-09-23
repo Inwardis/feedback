@@ -7,6 +7,15 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.79] - 2026-09-23
+
+### Fixed
+- **A workspace backup with a large attachment can be restored again.** The restore refused any
+  attachment over about 15 MB with *Failed to read backup data for table file_contents*, although the
+  backup had written it correctly. Backups made with earlier releases restore fine into this one.
+- **A Jira import made from the wizard is now a version of its own**, exactly as one made by an
+  agent already was, so the project's history never lags what the import wrote.
+
 ## [1.0.0-rc.78] - 2026-09-23
 
 ### Added
