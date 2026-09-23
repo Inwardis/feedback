@@ -7,6 +7,17 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.0-rc.80] - 2026-09-23
+
+### Changed
+- **A workspace backup needs a full license.** On a trial, on an installation without a license,
+  or after a trial has expired, *Admin → Backup & Restore → Download backup* is disabled with the
+  reason, and the server refuses the request. Restoring a backup and exporting projects one at a
+  time (JSON, YAML, ITL, Markdown) work as before.
+- **One trial per person.** Requesting a trial from another spelling of the same mailbox (a
+  `+tag`, dots in a Gmail address) re-sends the key you already have; disposable addresses cannot
+  start a trial. (Billing service 0.2.9 — nothing to install.)
+
 ## [1.0.0] - 2026-09-23
 
 The first production release, promoted from release candidate 79. Inwardis is a modelling and
