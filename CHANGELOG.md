@@ -7,6 +7,26 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.5] - 2026-09-24
+
+What changed since 1.0.3, the previous production version: you can add a child element straight from
+the canvas, straight lines bend where you drag them, and long menus scroll. Installing it needs no
+migration step.
+
+### Added
+- **Add a child from the canvas.** A selected element shows a small **+** outside its bottom-right
+  corner; pick a type and the new element is created inside it — placed inside a pool, lane or other
+  container, or added to an ordinary box's contents, just like the explorer's **+**.
+
+### Fixed
+- **Bending a straight line works.** On a straight line, such as a BPMN sequence or message flow,
+  dragging its middle dot or the line itself now bends that line where you drag it; before, a dot
+  moved and the line stayed put. The dots of a selected line always sit on the line.
+- **Long menus scroll.** The menu behind the explorer's **+** and the view tab's right-click menu stay
+  on screen and scroll when their list is longer than the window, like the other menus.
+- Clicking a toolbox type onto an ordinary box no longer draws the new element as a separate box on
+  top of it; it is added to the box's contents, as the explorer's **+** does.
+
 ## [1.0.4] - 2026-09-24
 
 Two fixes on top of 1.0.3. Installing it needs no migration step.
