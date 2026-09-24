@@ -7,6 +7,17 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.4] - 2026-09-24
+
+Two fixes on top of 1.0.3. Installing it needs no migration step.
+
+### Fixed
+- **Bending a straight line works.** On a straight line, such as a BPMN sequence or message flow,
+  dragging its middle dot or the line itself now bends that line where you drag it; before, a dot
+  moved and the line stayed put. The dots of a selected line always sit on the line.
+- **Long menus scroll.** The menu behind the explorer's **+** and the view tab's right-click menu stay
+  on screen and scroll when their list is longer than the window, like the other menus.
+
 ## [1.0.3] - 2026-09-24
 
 What changed since 1.0.1: diagrams with containers — pools and lanes, groups, boundaries — read the
