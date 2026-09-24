@@ -7,6 +7,32 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.3] - 2026-09-24
+
+What changed since 1.0.1: diagrams with containers — pools and lanes, groups, boundaries — read the
+way they are meant to, and the VS Code extension copes better with a dropped connection. Installing
+it needs no migration step.
+
+### Improved
+- **Swimlanes read like swimlanes.** A BPMN pool or lane carries its name down its left edge, as
+  BPMN draws it, on the canvas, in exported pictures and in auto-layout. Template authors can give
+  any container this look with `titlePlacement: left`.
+- **Create an element straight into a container.** Pick a type in the toolbox and click inside a
+  pool, a lane or any container: the element is created there, with no question to answer.
+- **Lines go to the element, not to its container.** A line between elements in different lanes,
+  pools or groups now starts and ends on the elements themselves, finding its way out between the
+  other boxes. Where it cannot, it starts on the container's border with a small circle and the
+  label names the real ends — a line between two containers never has the circle. A folded
+  container keeps showing the lines of what it hides. Right-click a view tab and choose **Lines
+  attach to: containers** for a figure about which groups talk to each other.
+- **Open a sub-process with a double-click.** Shapes without a header strip, such as a BPMN
+  sub-process, now drill down on a double-click when they have steps inside; with nothing inside,
+  a double-click still renames.
+- **The VS Code extension recovers from a dropped connection.** When a file cannot be read because
+  the connection to the server dropped, the extension tries once more on its own; if that fails too,
+  it says why and offers **Retry** and **Reload Window**. The extension your server hands out is
+  version 0.18.2.
+
 ## [1.0.1] - 2026-09-23
 
 A maintenance release with the same product as 1.0.0, promoted from release candidate 80; nothing changes in what you use day to day, and installing it needs no migration step. For reference, what Inwardis is: Inwardis is a modelling and
