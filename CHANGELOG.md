@@ -7,6 +7,32 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.6] - 2026-09-28
+
+What changed since 1.0.5, the previous production version: a code reference inserted in VS Code links
+its element at once, and restoring a workspace backup works again. The upgrade applies two database
+migrations by itself when the new version starts; the database account Inwardis uses must be allowed
+to create schemas (a restore already needed this).
+
+### Added
+- **A code reference links its element straight away.** When you insert a code reference with the
+  VS Code extension (version 0.19.0, bundled with this release), the element's **Code** section shows
+  the link immediately, marked **pending**. It becomes an ordinary link, with its freshness badge and a
+  link to your git host, once your push lands and the server's scan finds the mark. If your own later
+  push of that file arrives without the mark, the pending link goes away. Someone else's commit never
+  removes it. The repository has to be listed under **Code Repositories…** on the project.
+- The extension asks the server to scan as soon as it sees your push, so a pending link is confirmed
+  in seconds. **Inwardis: Scan code references on the server now** does the same by hand, and anyone
+  who can edit the project may use it.
+- AI agents can do the same over MCP with the new `add_code_reference` and `scan_code_references`
+  tools.
+
+### Fixed
+- **Restoring a workspace backup works again.** Since 1.0.0 a restore stopped with the error
+  *operator class "gin_trgm_ops" does not exist* (the running workspace was never touched). Backups
+  taken with 1.0.0–1.0.5 restore normally on 1.0.6.
+- Workspace backups now include code references, so pending links survive a restore.
+
 ## [1.0.5] - 2026-09-24
 
 What changed since 1.0.3, the previous production version: you can add a child element straight from
