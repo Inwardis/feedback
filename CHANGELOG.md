@@ -7,6 +7,36 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.9] - 2026-09-30
+
+What changed since 1.0.6: AI agents working on your models over MCP learn, as they go, to say what
+they changed, and security updates. No database migration; the upgrade is a restart. (There is no
+1.0.7 or 1.0.8: each build stopped at the security scan on an advisory published that day, and
+nothing was published under either number.)
+
+### Added
+- **Agents are reminded to summarise their work.** Now and then, an agent's tool answers carry a
+  short note when it has made a batch of changes without leaving a summary. The note suggests the
+  summary call with the right projects already filled in, so the activity thread shows what the work
+  was *for*, not only what changed. Nothing needs installing; it works for every agent.
+- **Agents offer a wider check, and ask you first.** After many changes in one project, the note
+  suggests offering you a consistency pass: parents with no summary, elements nothing reaches, and
+  missing relations or contradictions near what was changed. The agent is told to ask you before
+  starting it.
+- Administrators can switch the notes off with `MCP_PRACTICE_NOTES_ENABLED=false`.
+
+### Fixed
+- An agent can now ask the built-in guide for its page on awareness and summaries. The page
+  existed, but agents that check their arguments could not request it.
+- The agent guide now says plainly to finish every piece of work with a short summary. It used to
+  read as if a summary was needed only when you asked for one.
+
+### Security
+- The JSON library the server uses (Jackson) is updated to 2.21.6, which fixes a denial of service
+  through very long numbers in a request (CVE-2026-68497).
+- The image now takes Ubuntu's security updates when it is built, which brings OpenSSL's fix for
+  CVE-2026-84782.
+
 ## [1.0.6] - 2026-09-28
 
 What changed since 1.0.5, the previous production version: a code reference inserted in VS Code links
