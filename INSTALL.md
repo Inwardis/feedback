@@ -193,6 +193,7 @@ production-sane.
 | `MCP_RATE_LIMIT_BULK` | `60` | MCP batch / render / version-diff calls per minute per API key (`apply_changes`, `render_view`, …) |
 | `MCP_RATE_LIMIT_OVERALL` | `480` | All MCP calls per minute per API key |
 | `MCP_ATTACHMENT_MAX_BYTES` | `8388608` | Largest file (decoded bytes) an agent may add or fetch over MCP; larger files use the REST attachments endpoint |
+| `MCP_PRACTICE_NOTES_ENABLED` | `true` | An occasional `practice` note on agents' tool answers — a summary owed, or a wider consistency check to offer you first. `false` switches the notes off |
 | `INWARDIS_METRICS_SCRAPE_TOKEN` | unset | Token granting Prometheus access to `/actuator/prometheus` |
 | `INWARDIS_MAX_UPLOAD_SIZE` | `2GB` | Largest single upload over REST — attachments, imports and workspace-backup restores (Spring size syntax, e.g. `500MB`) |
 | `INWARDIS_SLOW_QUERY_THRESHOLD_MS` | `500` | Database statements slower than this are logged as slow queries and counted on the admin Performance card |
