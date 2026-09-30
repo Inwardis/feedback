@@ -11,6 +11,11 @@ Inwardis shows in the project's activity thread beside a count of what the agent
 Whether it does so is your team's practice. This hook makes a Claude Code session *unable to walk
 away from a pile of unsummarised changes* — and asks **occasionally, never every turn**.
 
+**The server reminds too** (from the release after 1.0.6). Every agent's tool answers carry an occasional `practice`
+note when a summary is owed, with nothing installed. The server can only speak when the agent calls
+it, though, so a session that stops without another call is never told: this hook is the
+end-of-turn guarantee for that case. The two read the same count and never disagree.
+
 | File | Hook | What it does |
 |---|---|---|
 | `inwardis-summary-gate.sh` | `Stop` | At the end of a turn, asks your Inwardis server what this key has written in its current session that no summary covers yet. Asks the agent for a summary only when 10 such changes have piled up or the oldest is 30 minutes old. Never after a turn that changed nothing, never twice in a row. |
