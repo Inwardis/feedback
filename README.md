@@ -2,9 +2,11 @@
 
 Welcome to the public home for **Inwardis** planning and community feedback.
 
-**Inwardis** is a diagramming tool where *everything is a hierarchy* — elements contain
-sub-elements, so you model a system once and drill down through it at every level of abstraction.
-It runs on-premise via Docker; your data stays on your infrastructure.
+**[Inwardis](https://inwardis.com)** is a model-based knowledge base for software systems: a
+hierarchical model that people browse layer by layer and AI agents read and write over
+[MCP](https://inwardis.com/mcp.html). Elements contain sub-elements, so you model a system once and
+drill down through it at every level of abstraction, with C4, UML, database and BPMN views of the same
+model. It runs on your own infrastructure via Docker; your data stays there.
 
 > **This repo has no product source code.** Inwardis is developed privately. This repository
 > exists so the roadmap is visible and anyone can report bugs or request features in the open.
