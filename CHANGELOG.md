@@ -7,6 +7,39 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.10] - 2026-10-03
+
+What changed since 1.0.9: the VS Code extension stays quiet when your server is unreachable,
+AI agents get a clear answer when they send a request in the wrong shape instead of a silent one,
+and security updates.
+No database migration; the upgrade is a restart.
+
+### Changed
+- **VS Code extension 0.19.1: one quiet indicator when the server is down.** When the extension
+  cannot reach your Inwardis server, the status bar shows *Inwardis offline* instead of an error
+  notification for every open file, again each time you switched back to the window. It keeps
+  trying in the background, and when the server answers, the open files reload by themselves.
+  Click the indicator to retry now, reload the window or open the log. Download the new extension
+  from your server's Help menu or the API Keys dialog.
+
+### Fixed
+- **Agents' requests in the wrong shape are refused, not silently ignored.** A tool call carrying
+  an argument the tool does not take, such as a note's text passed beside `properties` instead of
+  inside it, used to be accepted and change nothing while reporting success. It is now refused,
+  and the message names the argument and says what to send instead. A batch with one such change
+  applies nothing.
+- **Safe concurrent edits work for every agent.** The option that makes an update or delete wait
+  for the version you read (`ifUnmodifiedSince`) was missing from the tools' published
+  descriptions, so agents that check their arguments could not use it. It is listed now.
+- **A delete asked not to cascade is refused.** Deleting an element always removes its children
+  and its relations; a request with `cascade: false` used to be accepted and delete them anyway.
+  It is now refused with a note on how to keep the children (move them first).
+
+### Security
+- The JSON library the server uses (Jackson) is updated to 2.21.7, which fixes four
+  high-severity advisories published since 1.0.9 (CVE-2026-89407, CVE-2026-89425,
+  CVE-2026-91776, CVE-2026-91777).
+
 ## [1.0.9] - 2026-09-30
 
 What changed since 1.0.6: AI agents working on your models over MCP learn, as they go, to say what
