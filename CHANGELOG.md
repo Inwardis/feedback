@@ -7,6 +7,41 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.11] - 2026-10-04
+
+What changed since 1.0.10: elements can move into another project — a subproject, say — keeping
+everything attached to them, several at a time; a container put on the canvas brings what it
+holds; and the toolbox folds by template.
+No database migration; the upgrade is a restart.
+
+### Added
+- **Move elements into another project.** *Move to…* has a **Project** choice: this project, its
+  subprojects, then the others you can edit. The element moves with everything inside it and
+  keeps its identity — links to it, comments, attachments and code references stay attached.
+  Before anything moves, the dialog shows what will change: relations to elements left behind
+  become cross-project references, and views of this project lose the moved boxes. In the new
+  project the elements are not placed on a view yet. Dragging an element in the explorer onto
+  another element, or onto a project, opens the same dialog set to that place.
+- **What a move needs, it offers.** If the other project does not use one of the moved elements'
+  templates, the preview says so and the button reads *Add … and move*. If a relation cannot link
+  elements in different projects (in UML Use Case, everything but a Reference), the element at its
+  other end comes along, named in the preview — *Move with 1 related element*.
+- **Move several elements at once.** Ctrl-click (Cmd-click on a Mac) elements in the explorer to
+  select them; *Move to…* or dragging any of them moves the whole selection, in one undo step.
+- **A container brings what it holds.** Dragging a container such as a system boundary from the
+  explorer onto the canvas, or *Show on Canvas*, also places the elements inside it that are not on
+  the view yet, arranged inside and with the container sized to fit. One Ctrl+Z takes them all off
+  again. An element moved under a container on the canvas appears inside it.
+- **For agents:** `update_element` moves an element into another project (`projectId`, with
+  `dryRun`, `addTemplates`, `alsoMove` and `includeRelated`), and `add_elements_to_view` takes
+  `withChildren` to place a container with what it holds.
+
+### Changed
+- **The toolbox and the Add Element menu fold by template.** In a project that uses several
+  templates, each template is a header with a count, folded until you open it; the toolbox, the
+  Add Element menu and the explorer's right-click menu show the same groups, sorted by name, and
+  remember which you opened, per project.
+
 ## [1.0.10] - 2026-10-03
 
 What changed since 1.0.9: the VS Code extension stays quiet when your server is unreachable,
