@@ -7,6 +7,57 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.12] - 2026-10-06
+
+What changed since 1.0.11: a new Infographics template draws big, colourful icon pictures from a
+model; relation lines can be thicker and curved; lines now end on the figure they point at, and
+an arrowhead takes the colour of its line.
+No database migration; the upgrade is a restart. Built-in templates you have not edited are
+refreshed at start.
+
+### Added
+- **Infographics template.** A 26th built-in template, for a picture that goes on a slide or a web
+  page: 27 icon figures in five colour families — steps, goals and decisions in blue; people,
+  teams, customers and agents in teal; ideas, metrics and wins in orange; warnings, questions and
+  problems in red; places, documents, devices, tools, money and time in purple — each an icon with
+  its name underneath, joined by coloured flows. A Section groups figures under a title, and steps
+  line up in a row by themselves. Notes stay in the model, off the picture.
+- **Thicker lines.** A relation's line can be 1 to 6 pixels wide. A template declares the width
+  per relation type; you can set one width for every line of a view (right-click the view tab,
+  **Line width**) or for a single line (right-click the line, **Line width**). "auto" hands the
+  choice back to the template. A thick line stops neatly inside its arrowhead, and a dashed or
+  dotted one keeps its gaps.
+- **Curved lines.** Beside straight and orthogonal there is a third way to draw a relation:
+  **curved**. Corners become bends, and a line with no bend gets a slight bow, so two opposite
+  relations between the same two elements no longer lie on each other. A curve follows the route
+  the line already had and does not cut through a box that route went around. Choose it for a
+  whole view (right-click the view tab, **Routing**) or for one line (right-click the line,
+  **Route**); bending a curved line works as before, and it stays curved. In the Infographics
+  template a Flow is a thick curve by default.
+- **For template authors:** a relation type takes `routing: curved` and `style.strokeWidth` (a
+  whole number from 1 to 6). A custom shape can say `clipShape: outline`, so lines end on the
+  shape that is drawn rather than on the box around it.
+- **For agents:** `update_view` and `update_relation` take `strokeWidth` and `routing: "curved"`;
+  passing `null` clears either. A rendered view states each line's route in `data-path-points`.
+
+### Changed
+- **Lines end on the figure, not beside it.** A line into a circle, a hexagon, a person, a BPMN
+  event or gateway, a use case or an icon now meets the shape that is drawn. Before, such a line
+  could stop at the invisible box around the shape, a little short of it.
+- **An arrowhead is the colour of its line.** A relation type with its own line colour used to end
+  in a grey arrowhead; the head now matches, on the canvas, in exports and in server-rendered
+  pictures.
+- **A custom shape's outline follows its template.** The rim of an icon shape takes the colour
+  its element type declares, where it used to be grey whatever the template said.
+- **Template checks are stricter in two places.** Saving a template with an unknown `clipShape`
+  value, or with `style.strokeWidth` on an element type, is now refused with a message naming the
+  entry — both were accepted before and silently ignored.
+- **For agents:** `update_view` with `routing: "orthogonal"` now sets the view to orthogonal. It
+  used to clear the setting, which left the template's own routing in place; pass `null` to clear.
+
+### Security
+- Security updates to the libraries of the rendering service.
+
 ## [1.0.11] - 2026-10-04
 
 What changed since 1.0.10: elements can move into another project — a subproject, say — keeping
