@@ -7,6 +7,23 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.14] - 2026-10-07
+
+What changed since 1.0.13: under the hood the server moved to a newer platform (Spring Boot 4).
+Nothing changes in how you use it; the upgrade is a restart. No database migration.
+
+### Changed
+- **The server runs on Spring Boot 4.** Spring Framework 7, Hibernate 7, Tomcat 11 and Jackson 3
+  replace their predecessors. Every stored byte was pinned before the move and compared after it —
+  the JSON in the database, the files in a project's git history, backups, the REST and agent
+  answers, licence keys — and none changed. A licence issued before this release validates
+  exactly as before.
+
+### Security
+- The Spring MVC vulnerability accepted in the image gate for 1.0.12 and 1.0.13 (CVE-2026-47884)
+  is fixed in this release's platform; the acceptance and its guard are gone, and the image scans
+  clean without any accepted finding on the application side.
+
 ## [1.0.13] - 2026-10-07
 
 What changed since 1.0.12: saving a diagram tells you what the project's templates would have
