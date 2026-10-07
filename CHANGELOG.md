@@ -7,6 +7,60 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.13] - 2026-10-07
+
+What changed since 1.0.12: saving a diagram tells you what the project's templates would have
+refused, without losing anything you drew; the built-in templates accept the relations their
+descriptions describe; dates are real dates; UML inheritance is drawn with the hollow triangle;
+and a new project starts with no template pre-selected.
+No database migration; the upgrade is a restart. Built-in templates you have not edited are
+refreshed at start — class and use-case diagrams change their arrowheads on upgrade.
+
+### Added
+- **A save says what the templates would have refused.** Saving from the canvas now checks the
+  changed elements and relations against the project's templates — a value that is not a valid
+  date, a line between types the relation does not allow, an ambiguous type, a containment
+  cycle — and reports them in the save message (*Saved with 2 warnings — …*). Nothing is refused
+  and nothing is changed: what you drew is stored as drawn, and the message names what to fix.
+  Saving again with nothing changed is quiet.
+- **Date properties are real dates.** A property a template declares as `date` gets a date picker
+  in the properties panel, and a value that is not a calendar day in the form `YYYY-MM-DD` is
+  refused by the server with the form named, over the API and from agents alike. A template that
+  declares a property type the product does not know (`datetime`, say) no longer validates.
+- **The hollow triangle.** Templates may declare a `triangle` arrowhead — the white triangle UML
+  uses for inheritance. UML inheritance, realization and generalization now end in it,
+  associations and dependencies in the open arrowhead, and a BPMN message flow in its white
+  triangle, so a class diagram's three head shapes mean three things, as in the notation.
+- **For template authors:** the template editor warns — in amber, without refusing — about a
+  type that has no toolbox entry (an agent can still place it) and about a shortcut key used
+  twice (a key used twice works for neither). Agents creating or updating a template get the same
+  warnings in the answer.
+
+### Changed
+- **The built-in templates accept what their descriptions describe.** Relations a reader of the
+  descriptions would draw are now allowed across the built-ins: a note can be attached from
+  either end everywhere, an interface can inherit from an interface, an external system can call
+  a service, a load balancer can route to a node, a requirement can conflict with a goal, an
+  object flow in an activity diagram can reach a decision or a fork. Each description now says
+  in full what the relation accepts. A state machine no longer accepts a transition out of a
+  final state or into an initial state. A new risk, region, capability or canvas block starts with
+  no badge instead of a guessed one. The storyboard gains a note link, and the API design template
+  a cross-project Reference and a drawn response status. EA imports keep object flows as object
+  flows.
+- **Every toolbox offers every type.** Boundary can be placed from the toolbox in the
+  event-driven and deployment-topology templates, Supersedes in the concept map; the infographics
+  relation shortcuts, and the Loop, Trophy and Building keys they had silently disabled, work
+  again. The toolbox no longer prints a key that does nothing: a letter is shown only while it
+  activates its entry.
+- **A new project starts with no template ticked.** Create Project used to pre-select Simple
+  Drawing, so a C4 or BPMN project composed it unless you un-ticked it. You now choose; Create is
+  enabled once at least one template is picked.
+
+### Security
+- CVE-2026-47884 (Spring MVC `XsltView`) remains accepted in the image gate for this release, with
+  the same guard as 1.0.12: the product uses no XSLT view, and a build test holds that true. The
+  open-source fix exists only on Spring Framework 7, which the next migration brings.
+
 ## [1.0.12] - 2026-10-06
 
 What changed since 1.0.11: a new Infographics template draws big, colourful icon pictures from a
