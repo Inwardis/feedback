@@ -7,6 +7,34 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.15] - 2026-10-13
+
+What changed since 1.0.14: notices can sit on an element, and server-rendered diagrams of very large
+projects no longer fail.
+
+### Added
+
+- **Notices on elements.** A notice — a steward's rule or reminder — can now sit on an element as
+  well as on a project. It applies to everything under that element: an agent writing anywhere in
+  the subtree sees it on every write, and an agent with manage rights can set or clear one over MCP.
+- **Governed by.** Reading or saving an element tells you which decisions, rules and requirements
+  govern it, and flags one that is older than the thing it governs. The same strip shows in the
+  properties panel.
+- **Mentioned in.** An element's reads list the notes elsewhere in the model that mention it by name.
+
+### Fixed
+
+- **Server-rendered diagrams of very large projects.** A project whose elements carry long notes —
+  every plan and state attached to every phase — could not be rendered on the server at all: every
+  view answered *"Render service is unavailable"* although the service was running. The renderer
+  now receives only what the picture draws (an element's notes travel only to a box that shows
+  them), so such projects render. A diagram that is still too large says so, with the limit, instead
+  of reporting the service as down; and a connection the renderer closes mid-request is reported as
+  that, not as an outage. The documentation export names the reason beside any view it could not
+  render.
+- **VS Code extension build.** The extension's own pipeline installs with the pinned package manager
+  again; the bundled extension is unchanged (0.19.1).
+
 ## [1.0.14] - 2026-10-07
 
 What changed since 1.0.13: under the hood the server moved to a newer platform (Spring Boot 4).
