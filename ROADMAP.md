@@ -45,7 +45,9 @@ The core product - people and agents share all of it:
 - **Readable outside the product** — a browsable Markdown documentation export, prose stored as
   `.md` files beside the element it describes, and server-rendered SVG with embeddable URLs.
 - **VS Code extension** — mount a model as a virtual filesystem (`inwardis://`), browse it as
-  folders and files, edit notes, search the model server-side, with live change updates.
+  folders and files, edit notes, search the model server-side, with live change updates. On the
+  [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=inwardis.inwardis)
+  and [Open VSX](https://open-vsx.org/extension/inwardis/inwardis), and bundled with every server.
 - **Operations** — an admin panel, full workspace backup & restore, and built-in observability
   (metrics, structured logs, performance dashboard).
 - **In-app help** — the complete user manual, searchable, right inside the app.
