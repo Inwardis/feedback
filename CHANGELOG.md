@@ -7,6 +7,31 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.16] - 2026-10-15
+
+What changed since 1.0.15: an agent can read a model's neighbourhood and trace paths through it in
+one call, container diagrams explain the lines they aggregate, and the VS Code extension is on the
+public registries.
+
+### Added
+
+- **Neighbourhood and trace over MCP.** Two new tools answer the questions that used to take a chain
+  of reads: `neighbourhood` returns everything within one to three hops of an element — the
+  elements, the relations among them, and the containment steps taken — bounded and with each
+  element's distance; `trace` lists every path from one element to another, step by step, so a
+  dependency can be followed rather than guessed. Both follow a relation into another project and
+  stop at the boundary.
+- **Aggregated lines are explained.** A line drawn between two containers on a diagram stands for
+  the relations between what they contain. Reading a view now lists those group-level lines with
+  what they stand for, and the neighbourhood read can compute them for any element. These lines are
+  computed when asked for, never stored — model health flags a stored relation that merely restates
+  one, and the agent primer says so.
+- **Decisions can be verified.** A Decision in the Simple Drawing template now carries a *verified
+  on* date like the other governing elements. "Governed by" distinguishes a decision that was never
+  verified from one that is older than what it governs, instead of reporting both the same way.
+- **VS Code extension on the Visual Studio Marketplace and Open VSX.** Install it from either
+  registry; the copy bundled with the product is the same release (0.19.2).
+
 ## [1.0.15] - 2026-10-13
 
 What changed since 1.0.14: notices can sit on an element, and server-rendered diagrams of very large
