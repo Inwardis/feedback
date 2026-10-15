@@ -7,6 +7,19 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.17] - 2026-10-15
+
+What changed since 1.0.16: the activity trail and the live change feed record only writes that
+actually landed.
+
+### Fixed
+
+- **The trail records what committed.** An audit row and a live change-feed event are now written
+  after the transaction behind them commits. A batch of changes that was refused part-way, or run
+  as a dry run, used to leave audit rows and send change notifications for element writes that had
+  been rolled back; it now leaves only the record of the call itself, and a client refreshing on a
+  change event always reads committed state.
+
 ## [1.0.16] - 2026-10-15
 
 What changed since 1.0.15: an agent can read a model's neighbourhood and trace paths through it in
