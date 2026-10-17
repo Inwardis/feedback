@@ -7,6 +7,22 @@ install. During the pre-release period every release candidate has its own secti
 The section for a version is what the downloads page and the in-product *What's New* page
 show, so it is written for the people who install the product, not for its developers.
 
+## [1.0.18] - 2026-10-17
+
+What changed since 1.0.17: an element's attachment list is complete the moment the element is
+shown, and it follows what other people and agents attach.
+
+### Fixed
+
+- **Attachments show up when you open an element by link.** Opening an element from a shared link,
+  or returning to it after a page reload, used to show *No attachments* until the element was
+  clicked again, because the list was asked for before the element's type was known. The list now
+  loads as soon as both are known, whichever comes first.
+- **The attachment list stays current.** When a colleague, VS Code or an agent attaches a file to
+  or removes one from the element you have open, the list updates by itself, even while you have
+  unsaved changes. The live change feed's attachment events now name the element the file belongs
+  to, and the on-canvas "who touched this" badge lands on that element.
+
 ## [1.0.17] - 2026-10-15
 
 What changed since 1.0.16: the activity trail and the live change feed record only writes that
