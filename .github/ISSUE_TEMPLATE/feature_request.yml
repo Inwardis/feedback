@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest an improvement or something new for Inwardis.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea! **Search first** — if it already exists, 👍 it instead (we rank by
+        reactions). Check the [roadmap](../../ROADMAP.md) too; it may already be planned.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: The need behind the request — the "why", not just the "what".
+      placeholder: When I model large schemas, I can't tell which tables belong to which module…
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you like Inwardis to do?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Workarounds you use today, or other approaches.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Canvas / editing
+        - Templates
+        - Reverse engineering / import
+        - Export
+        - Versioning / collaboration
+        - Sharing / access
+        - Admin / operations
+        - AI / MCP / API
+        - Other
+    validations:
+      required: true

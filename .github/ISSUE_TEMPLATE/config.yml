@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Installation guide
+    url: https://github.com/inwardis/feedback/blob/main/INSTALL.md
+    about: How to install and configure Inwardis. Once installed, the app's ? Help panel is the full, version-matched manual.
+  - name: 💬 Discussions
+    url: https://github.com/inwardis/feedback/discussions
+    about: Questions, ideas, and show-and-tell — for anything that isn't a bug or a concrete request.
+  - name: 🔒 Security issue
+    url: https://github.com/inwardis/feedback/security/advisories/new
+    about: Please report vulnerabilities privately via GitHub's security advisory form, never as a public issue.
