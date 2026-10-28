@@ -9,35 +9,39 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.21] - 2026-10-24
+## [1.0.22] - 2026-10-28
 
-What changed since 1.0.20: elements added to a diagram can be arranged without moving the ones
-you placed, automatic layout leaves room for the labels on relations, and agents get a truer
-picture of what they drew.
+What changed since 1.0.21: typing beside inline comments is fast again, and Review shows the
+comments under what you have selected.
+
+Areas: comments, the MCP server
 
 ### Added
 
-- **Arrange new elements.** A new **Arrange new** button beside Re-layout places only the elements
-  that were added without a position. Those are usually added by an agent or an import, and arrive
-  in a column at the left edge. Each goes next to the elements it is related to, or into one block
-  below the diagram when it relates to nothing on it, and inside its container when it has one.
-  **Everything you arranged stays exactly where it is.** A container too small for its new element
-  grows; if it then covers a neighbour you are told, and nothing else is moved. The button is
-  greyed out when there is nothing to arrange, and one Undo puts everything back. Agents get the
-  same thing over MCP: `apply_layout` with `only: "unplaced"`.
+- **Review follows your selection.** With an element selected, on the canvas or in the explorer,
+  the **Review** button's count and the Review pane cover that element and everything beneath it.
+  Several selected elements count together, and with nothing selected Review covers the whole
+  project, as before. The pane's first line says what it covers. Opening a comment from the pane
+  keeps the pane where it was, and **Show the whole project** widens it until you select something
+  else.
+- **For agents: comments under an element.** `list_comments` takes `underElementIds` beside
+  `projectId` and answers the threads on those elements and everything beneath them, the same list
+  the Review pane shows for a selection.
 
 ### Fixed
 
-- **Labels no longer land on top of boxes after auto-layout.** The ELK layout now leaves room
-  between layers for the labels on relations, so they sit beside their lines. Diagrams with many
-  labelled relations come out somewhat larger than before.
-- **For agents: the figure check counts labels correctly.** `render_view` no longer reports a
-  relation label as overlapping a box when it sits inside the group its relation belongs to.
-- **For agents: an ITL export of a view made over MCP can be imported again.** It used to contain
-  settings the importer refused.
-- **For agents: activity never lists a project that does not exist.** A call that passed a wrong id
-  as the project is still recorded as refused, but no longer shows up as a "(deleted or not
-  visible)" project in the agent's activity.
+- **Typing in the notes or in the comment box no longer slows down on elements with many inline
+  comments.** A commented passage that contains bold or italic text is also no longer marked
+  *orphaned* while it is highlighted in the notes.
+- **For agents: an inline comment may quote the passage as the Markdown you read.** Bold, italics,
+  code and links in the quote are ignored when the passage is found.
+- **A project that cannot be loaded now says so** with a message, instead of opening an empty
+  diagram.
+- **Security update** to a library the OpenAPI import uses.
+
+## [1.0.21] - 2026-10-24
+
+Changes to the MCP server and the canvas.
 
 ## [1.0.20] - 2026-10-23
 
