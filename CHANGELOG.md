@@ -9,35 +9,37 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.22] - 2026-10-28
+## [1.0.23] - 2026-11-18
 
-What changed since 1.0.21: typing beside inline comments is fast again, and Review shows the
-comments under what you have selected.
+What changed since 1.0.22: a folder of Markdown notes imports as a model, and your coding agent
+can be pointed at the model from its own instructions file.
 
-Areas: comments, the MCP server
+Areas: import, API keys, the MCP server, agent hooks
 
 ### Added
 
-- **Review follows your selection.** With an element selected, on the canvas or in the explorer,
-  the **Review** button's count and the Review pane cover that element and everything beneath it.
-  Several selected elements count together, and with nothing selected Review covers the whole
-  project, as before. The pane's first line says what it covers. Opening a comment from the pane
-  keeps the pane where it was, and **Show the whole project** widens it until you select something
-  else.
-- **For agents: comments under an element.** `list_comments` takes `underElementIds` beside
-  `projectId` and answers the threads on those elements and everything beneath them, the same list
-  the Review pane shows for a selection.
+- **Import a folder of Markdown notes.** **Import → From Other Tool… → Markdown notes (folder)**
+  takes an agent's memory files, a notes vault or a docs folder: each note becomes an element with
+  its text unchanged, each folder becomes the level above its notes (a folder's `README.md` or
+  `index.md` is the folder's own text), and links between notes (`[[wikilinks]]` and ordinary
+  links to other `.md` files) become relations. Front matter fills the element's matching
+  properties. The preview shows the types it will use and lists every link it cannot follow.
+  The import lands under the element you are in and is a version of its own. Importing the same
+  folder again creates the notes again.
+- **Tell your agent where the model is.** After you create an API key with a project open, the
+  dialog offers a short paragraph to paste into your repository's agent instructions file
+  (`CLAUDE.md`, `AGENTS.md` or a rules file). It names the project and tells the agent to read the
+  model first, keep it up to date, and leave a summary when it finishes. It copies nothing from
+  the model, so it does not go out of date.
+- **For agents:** `import_model` takes `format: "markdown"` with `files: [{path, content}]`, and
+  `project_brief {projectId, agentInstructions: true}` returns the same paragraph the dialog shows.
+- **For Claude Code: a session-start hook.** An optional hook, published beside the summary
+  reminder, tells each new session what changed in the model since the last one, and says nothing
+  when nothing changed. See *Activity, Awareness and Presence* in the help.
 
-### Fixed
+## [1.0.22] - 2026-10-28
 
-- **Typing in the notes or in the comment box no longer slows down on elements with many inline
-  comments.** A commented passage that contains bold or italic text is also no longer marked
-  *orphaned* while it is highlighted in the notes.
-- **For agents: an inline comment may quote the passage as the Markdown you read.** Bold, italics,
-  code and links in the quote are ignored when the passage is found.
-- **A project that cannot be loaded now says so** with a message, instead of opening an empty
-  diagram.
-- **Security update** to a library the OpenAPI import uses.
+Changes to comments and the MCP server.
 
 ## [1.0.21] - 2026-10-24
 
