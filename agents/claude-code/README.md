@@ -80,6 +80,33 @@ small local request and no model tokens. Fit the thresholds to how your sessions
 - A session that ends without a final turn is not caught — `SessionEnd` cannot block. The summary
   is a practice; the hook is a nudge.
 
+
+## What moved since you were here — the session-start hook
+
+| File | Hook | What it does |
+|---|---|---|
+| `inwardis-session-start.sh` | `SessionStart` | When a session starts or resumes, finds this repository's Inwardis project, asks your server what moved since the last session here (`get_changes`, rolled up by hour) and adds a few lines to the session's context. Says nothing when nothing moved. |
+
+**It needs the pointer first.** Inwardis writes a short paragraph for the repository's agent
+instructions file (`CLAUDE.md`, `AGENTS.md`): *API Keys → create a key* with the project open, or
+`project_brief {projectId, agentInstructions: true}` over MCP. It tells the agent which model to read
+and how, and its first line, `<!-- inwardis-project: <id> -->`, is what this hook looks for. Without a
+marker, set `INWARDIS_PROJECT_ID`. Paste the paragraph even if you never install the hook: for an agent
+on any host, that paragraph is the integration.
+
+```bash
+cd ~/.claude/hooks
+curl -fsSLO https://raw.githubusercontent.com/inwardis/feedback/main/agents/claude-code/inwardis-session-start.sh
+chmod +x inwardis-session-start.sh
+```
+
+The `SessionStart` entry is in [`settings.example.json`](settings.example.json). Same rules as the
+summary reminder: server and key from Claude Code's `inwardis` registration, the key on `curl`'s
+standard input, and it fails open — no marker, no server, no answer: no output. It keeps the time it
+last heard from the server in `~/.local/state/inwardis/`. Variables: `INWARDIS_PROJECT_ID`,
+`INWARDIS_SESSION_LINES` (5), `INWARDIS_SESSION_LOG`, `INWARDIS_SESSION_STATE`,
+`INWARDIS_SESSION_TIMEOUT` (3), and `INWARDIS_MCP_URL` / `INWARDIS_API_KEY` as above.
+
 ---
 
 *These files are mirrored from the product repository, where the test suite runs them on every
