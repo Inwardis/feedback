@@ -73,8 +73,15 @@ small local request and no model tokens. Fit the thresholds to how your sessions
 
 - **It fails open.** Server down, no key, an older Inwardis: the turn simply ends. A reminder must
   never be able to wedge a session.
-- **One key per agent.** The count is kept per API key, because that is what the record knows. Two
-  agents sharing a key share one window: a summary left by one covers the other's changes too.
+- **One session, one agent — on any number of keys.** Since Inwardis 1.0.24 the hook names this
+  session's agent itself (`cc-` and the first eight characters of Claude Code's session id) and asks
+  what *that agent* owes; the session-start hook below tells the agent to send the same id on its
+  calls, and to give each subagent its own id with `parent` set to the session's. Several sessions and
+  their subagents can then share one key and each is asked only about its own work. Without the
+  session-start hook the agent sends no id, and the count falls back to the whole key: two agents
+  sharing a key share one window, as before. `INWARDIS_AGENT_CONTEXT=0` turns the agent id off in
+  both hooks. A key whose owner turned on **Require agent context** refuses every call that does not
+  carry it — install both hooks before turning that on.
 - **A session that is over owes nothing.** A key quiet for half an hour has ended its session; the
   reminder is for work in progress.
 - A session that ends without a final turn is not caught — `SessionEnd` cannot block. The summary
@@ -85,7 +92,7 @@ small local request and no model tokens. Fit the thresholds to how your sessions
 
 | File | Hook | What it does |
 |---|---|---|
-| `inwardis-session-start.sh` | `SessionStart` | When a session starts or resumes, finds this repository's Inwardis project, asks your server what moved since the last session here (`get_changes`, rolled up by hour) and adds a few lines to the session's context. Says nothing when nothing moved. |
+| `inwardis-session-start.sh` | `SessionStart` | When a session starts or resumes, finds this repository's Inwardis project, asks your server what moved since the last session here (`get_changes`, rolled up by hour) and adds a few lines to the session's context, ending with the agent id this session sends on its Inwardis calls. Says only that line when nothing moved. |
 
 **It needs the pointer first.** Inwardis writes a short paragraph for the repository's agent
 instructions file (`CLAUDE.md`, `AGENTS.md`): *API Keys → create a key* with the project open, or
@@ -102,10 +109,11 @@ chmod +x inwardis-session-start.sh
 
 The `SessionStart` entry is in [`settings.example.json`](settings.example.json). Same rules as the
 summary reminder: server and key from Claude Code's `inwardis` registration, the key on `curl`'s
-standard input, and it fails open — no marker, no server, no answer: no output. It keeps the time it
-last heard from the server in `~/.local/state/inwardis/`. Variables: `INWARDIS_PROJECT_ID`,
-`INWARDIS_SESSION_LINES` (5), `INWARDIS_SESSION_LOG`, `INWARDIS_SESSION_STATE`,
-`INWARDIS_SESSION_TIMEOUT` (3), and `INWARDIS_MCP_URL` / `INWARDIS_API_KEY` as above.
+standard input, and it fails open — no server, no answer: no output; no marker: only the agent id.
+It keeps the time it last heard from the server in `~/.local/state/inwardis/`. Variables:
+`INWARDIS_PROJECT_ID`, `INWARDIS_SESSION_LINES` (5), `INWARDIS_SESSION_LOG`, `INWARDIS_SESSION_STATE`,
+`INWARDIS_SESSION_TIMEOUT` (3), `INWARDIS_AGENT_CONTEXT` (`0` leaves the agent id out), and
+`INWARDIS_MCP_URL` / `INWARDIS_API_KEY` as above.
 
 ---
 
