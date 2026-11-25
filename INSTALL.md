@@ -33,7 +33,7 @@ fourth (`hocuspocus`), off by default.
    your download page gave you.
 7. Open `http://<host>:8080` and register — **the first account registered on a fresh install
    automatically has administrator rights** (there is no default username/password; you create
-   the admin by being first). The MFA code arrives by email. Then install your license key
+   the admin by being first; on a server others can reach first, set `INWARDIS_INITIAL_ADMIN_EMAIL` so only you can). The MFA code arrives by email. Then install your license key
    under **Admin → License**.
 
 Upgrading is a deliberate act: the compose file pins an image version on purpose. Download the
@@ -173,7 +173,8 @@ production-sane.
 |----------|---------|---------|
 | `SMTP_HOST` / `SMTP_PORT` | unset (email off) / `1025` | Your mail relay (see **Email setup** above) |
 | `INWARDIS_AUTH_MFA_ENABLED` | `false` | Email 6-digit login codes — needs a working `SMTP_HOST` |
-| `INWARDIS_AUTH_REGISTRATION_ENABLED` | `true` | Self-registration on the login page. The first person to register on a fresh install becomes its administrator, so leave it on until that has happened; later registrants are ordinary members. Set to `false` to close the door — an invitation from **Admin → Users** still creates the account, with whatever role the invitation carries |
+| `INWARDIS_AUTH_REGISTRATION_ENABLED` | `true` | Self-registration on the login page. Later registrants are ordinary members. Set to `false` to close the door — an invitation from **Admin → Users** still creates the account, with whatever role the invitation carries. On a fresh install the first account becomes the administrator: name it with `INWARDIS_INITIAL_ADMIN_EMAIL` and this can be `false` from the first start |
+| `INWARDIS_INITIAL_ADMIN_EMAIL` | empty | The address the install's **first account is reserved for** (1.0.25+). While no user exists, only this address can register — even with registration off — and it becomes the administrator. **Set it on any server people can reach before the administrator has registered**: without it, whoever registers first becomes the administrator |
 | `SMTP_USERNAME` / `SMTP_PASSWORD` | empty | Relay credentials |
 | `SMTP_AUTH` / `SMTP_STARTTLS` | `false` / `false` | Enable for authenticated/TLS relays |
 | `NOTIFICATIONS_ENABLED` | `true` | In-app + email notifications |
