@@ -9,33 +9,38 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.23] - 2026-11-18
+## [1.0.24] - 2026-11-25
 
-What changed since 1.0.22: a folder of Markdown notes imports as a model, and your coding agent
-can be pointed at the model from its own instructions file.
+What changed since 1.0.23: several agents can share one API key and still be told apart, and a key
+can require every agent to say who it is.
 
-Areas: import, API keys, the MCP server, agent hooks
+Areas: API keys, the MCP server, the activity trail, agent hooks, the VS Code extension
 
 ### Added
 
-- **Import a folder of Markdown notes.** **Import → From Other Tool… → Markdown notes (folder)**
-  takes an agent's memory files, a notes vault or a docs folder: each note becomes an element with
-  its text unchanged, each folder becomes the level above its notes (a folder's `README.md` or
-  `index.md` is the folder's own text), and links between notes (`[[wikilinks]]` and ordinary
-  links to other `.md` files) become relations. Front matter fills the element's matching
-  properties. The preview shows the types it will use and lists every link it cannot follow.
-  The import lands under the element you are in and is a version of its own. Importing the same
-  folder again creates the notes again.
-- **Tell your agent where the model is.** After you create an API key with a project open, the
-  dialog offers a short paragraph to paste into your repository's agent instructions file
-  (`CLAUDE.md`, `AGENTS.md` or a rules file). It names the project and tells the agent to read the
-  model first, keep it up to date, and leave a summary when it finishes. It copies nothing from
-  the model, so it does not go out of date.
-- **For agents:** `import_model` takes `format: "markdown"` with `files: [{path, content}]`, and
-  `project_brief {projectId, agentInstructions: true}` returns the same paragraph the dialog shows.
-- **For Claude Code: a session-start hook.** An optional hook, published beside the summary
-  reminder, tells each new session what changed in the model since the last one, and says nothing
-  when nothing changed. See *Activity, Awareness and Presence* in the help.
+- **Several agents on one key.** An agent can now say which agent it is on every call — an id, a
+  role such as *master* or *subagent*, and the agent that started it. A session and the subagents
+  it starts can then share one key and stay apart: each has its own sessions, session summaries and
+  reminders, and an agent is told when another agent on the same key changes what it is working on.
+  The activity trail, comments and the live notices on the canvas name the agent — *Agent review-3
+  on claude-code (Anna's)* — and hovering the name shows its role and which agent started it.
+  Agents that say nothing work exactly as before.
+- **Require agent context.** A new switch on each API key (in *API Keys* and *Admin → API Keys*,
+  when you create a key or later) makes the server refuse any agent call on that key that does not
+  say which agent is calling. It is off by default.
+- **More room for agent teams.** A key's agent rate limit now grows with the number of agents
+  working on it, up to eight times the configured limit. The help explains how to size the limits.
+- **Rename a key, and keep names apart.** You can rename your own keys and turn the switch on or off
+  without recreating them. Two of your active keys can no longer have the same name.
+- **For Claude Code:** the two published hooks give each session its own agent id, tell the agent to
+  use it and to give its subagents their own, and remind each session only about its own changes.
+  Download them again from the feedback repository.
+- **VS Code extension 0.19.3** tells the server it is your editor, so it works with keys that
+  require an agent context and its changes are told apart from your agents'.
+
+## [1.0.23] - 2026-11-18
+
+Changes to import, API keys, the MCP server and agent hooks.
 
 ## [1.0.22] - 2026-10-28
 
