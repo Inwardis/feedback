@@ -9,34 +9,34 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.24] - 2026-11-25
+## [1.0.25] - 2026-11-25
 
-What changed since 1.0.23: several agents can share one API key and still be told apart, and a key
-can require every agent to say who it is.
+What changed since 1.0.24: real-time collaboration works on your own server, and a new server can
+reserve its first account for the administrator.
 
-Areas: API keys, the MCP server, the activity trail, agent hooks, the VS Code extension
+Areas: real-time collaboration, installation, sign-in
 
 ### Added
 
-- **Several agents on one key.** An agent can now say which agent it is on every call — an id, a
-  role such as *master* or *subagent*, and the agent that started it. A session and the subagents
-  it starts can then share one key and stay apart: each has its own sessions, session summaries and
-  reminders, and an agent is told when another agent on the same key changes what it is working on.
-  The activity trail, comments and the live notices on the canvas name the agent — *Agent review-3
-  on claude-code (Anna's)* — and hovering the name shows its role and which agent started it.
-  Agents that say nothing work exactly as before.
-- **Require agent context.** A new switch on each API key (in *API Keys* and *Admin → API Keys*,
-  when you create a key or later) makes the server refuse any agent call on that key that does not
-  say which agent is calling. It is off by default.
-- **More room for agent teams.** A key's agent rate limit now grows with the number of agents
-  working on it, up to eight times the configured limit. The help explains how to size the limits.
-- **Rename a key, and keep names apart.** You can rename your own keys and turn the switch on or off
-  without recreating them. Two of your active keys can no longer have the same name.
-- **For Claude Code:** the two published hooks give each session its own agent id, tell the agent to
-  use it and to give its subagents their own, and remind each session only about its own changes.
-  Download them again from the feedback repository.
-- **VS Code extension 0.19.3** tells the server it is your editor, so it works with keys that
-  require an agent context and its changes are told apart from your agents'.
+- **Reserve the first account.** Set `INWARDIS_INITIAL_ADMIN_EMAIL` and only that address can
+  register on a fresh server, by e-mail and password or through single sign-on. Until that person
+  has registered, nobody else can, so a server reachable from the internet cannot be claimed by
+  whoever finds it first.
+
+### Fixed
+
+- **Real-time collaboration on an installed server.** The browser now connects to the
+  collaboration server through your server's own address (`/collab`, over `wss://` on https)
+  instead of an address that only worked on a developer's machine. Add the `/collab` route to your
+  reverse proxy as the installation guide shows; the collaboration server is now published on
+  `127.0.0.1:1234` only.
+- **Sharing is respected live.** The collaboration server asks Inwardis what each person may open
+  before it serves a project: someone without a share cannot join, and a view-only share is
+  read-only in real time too.
+
+## [1.0.24] - 2026-11-25
+
+Changes to API keys, the MCP server, the activity trail, agent hooks and the VS Code extension.
 
 ## [1.0.23] - 2026-11-18
 
