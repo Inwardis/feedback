@@ -9,30 +9,44 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.25] - 2026-11-25
+## [1.0.27] - 2026-11-26
 
-What changed since 1.0.24: real-time collaboration works on your own server, and a new server can
-reserve its first account for the administrator.
+What changed since 1.0.25: projects belong to your workspace, sharing reaches every subproject,
+invitations work with registration closed, real-time collaboration connects, and project notices
+fold into one bar.
 
-Areas: real-time collaboration, installation, sign-in
+Areas: projects and sharing, invitations, real-time collaboration, project notices
 
-### Added
+### Changed
 
-- **Reserve the first account.** Set `INWARDIS_INITIAL_ADMIN_EMAIL` and only that address can
-  register on a fresh server, by e-mail and password or through single sign-on. Until that person
-  has registered, nobody else can, so a server reachable from the internet cannot be claimed by
-  whoever finds it first.
+- **New projects belong to your workspace.** Everyone in the workspace can find a new project,
+  with the access their workspace role gives, and you keep owning it. Tick **Private** when you
+  create it to keep it to yourself and the people you share it with. A subproject follows its
+  parent. Right-click a top-level project you manage and choose **Move to Workspace** or **Make
+  Private** to change it later — its subprojects move with it. Projects you created before this
+  version stay as they were.
+- **Project notices fold into one bar.** Instead of a stack of banners, one slim bar under the
+  toolbar says how many notices the project has — *2 constraints · 1 alert*. Click it to read
+  them, click again to fold it. Inwardis remembers your choice per project, and a notice added
+  since you last opened the bar is marked **new**.
 
 ### Fixed
 
-- **Real-time collaboration on an installed server.** The browser now connects to the
-  collaboration server through your server's own address (`/collab`, over `wss://` on https)
-  instead of an address that only worked on a developer's machine. Add the `/collab` route to your
-  reverse proxy as the installation guide shows; the collaboration server is now published on
-  `127.0.0.1:1234` only.
-- **Sharing is respected live.** The collaboration server asks Inwardis what each person may open
-  before it serves a project: someone without a share cannot join, and a view-only share is
-  read-only in real time too.
+- **A share on a project opens its subprojects.** Someone you shared a project with saw its
+  subprojects but could not open them ("The project could not be loaded"). They now open, with
+  the access the share gives.
+- **Invitations work with self-registration turned off.** The invited address can register from
+  the invitation link and gets the invited role; nobody else can.
+- **Real-time collaboration connects on an installed server.** 1.0.25 still sent the browser to an
+  address on the viewer's own computer; it now connects through your server's `/collab` route.
+
+## [1.0.26] - 2026-11-26
+
+Changes to projects and sharing, invitations and real-time collaboration.
+
+## [1.0.25] - 2026-11-25
+
+Changes to real-time collaboration, installation and sign-in.
 
 ## [1.0.24] - 2026-11-25
 
