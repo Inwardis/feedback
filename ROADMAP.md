@@ -34,6 +34,8 @@ The core product - people and agents share all of it:
 - **Versioning** — Git-backed history, diffs, preview, restore, remote push/merge — and several installs joining one repository, ids kept.
 - **Sharing & access** — projects, organizations, teams, public links, and effective-access
   visibility.
+- **Real-time collaboration** — several people edit one project live and see each other's
+  presence; chosen per project, and every save is still a git version.
 - **Accounts** — built-in auth with email MFA, plus optional OIDC single sign-on (Keycloak,
   Azure AD, …) for on-premise.
 - **AI-assisted modelling** — a built-in MCP server with **61 tools**: agents read the model
@@ -57,7 +59,9 @@ The core product - people and agents share all of it:
 
 Direction, not commitments — your feedback moves these up or down:
 
-- **Real-time collaboration** — live multi-user editing with presence, graduating from preview.
+- **For agent factories** — every change names *why* it was made; talk to your agents in the
+  project's activity thread; rules the model can check; and a resident steward agent that reads
+  the model nightly and comments, never edits.
 - **Guided specification modelling** — domain packs that know what a complete specification
   contains, and an agent that interviews you to fill the gaps before the technical modelling starts.
 - **Deeper XMI import** — more diagram types and dialect coverage.
