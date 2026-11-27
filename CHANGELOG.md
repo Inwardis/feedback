@@ -9,36 +9,35 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
+## [1.0.28] - 2026-11-27
+
+What changed since 1.0.27: the explorer filters by any property your templates define, filters can
+be saved and shared, and agents can ask for elements by property value.
+
+Areas: explorer filters, saved filters, agents over MCP
+
+### Added
+
+- **Filter the explorer by property.** The new **funnel** in the explorer header opens a filter
+  panel beside the explorer. Add any field your templates declare — status, severity, owner,
+  dates, numbers — grouped by template, and choose values. Each value shows how many elements
+  carry it before you pick it. Apply, and the tree shows only the matching elements and the
+  parents that lead to them; a small pill above the tree names the filter and how many matched.
+  The filter follows changes as other people make them, and is remembered next time.
+- **Saved filters.** Name a filter (*Open findings*) and it is kept with the project: everyone who
+  can open the project picks it from the funnel, and its subprojects are offered it too. Editors
+  can rename and delete them. Saved filters travel with the project when it is published to git.
+- **Start a filter from a value.** A small funnel next to a field in the properties panel, or
+  **Filter Explorer** on a box's right-click menu, shows every element with that value.
+- **Share a filtered view.** The filter is part of the page address, so **Copy Link** opens the
+  same filtered tree for whoever you send it to.
+- **Agents ask by property value.** Over MCP, `search_elements` takes `where` conditions (or a
+  saved filter by name), so "the open findings" is an exact answer rather than a text search for
+  the word *open*; `update_project` can manage a project's saved filters.
+
 ## [1.0.27] - 2026-11-26
 
-What changed since 1.0.25: projects belong to your workspace, sharing reaches every subproject,
-invitations work with registration closed, real-time collaboration connects, and project notices
-fold into one bar.
-
-Areas: projects and sharing, invitations, real-time collaboration, project notices
-
-### Changed
-
-- **New projects belong to your workspace.** Everyone in the workspace can find a new project,
-  with the access their workspace role gives, and you keep owning it. Tick **Private** when you
-  create it to keep it to yourself and the people you share it with. A subproject follows its
-  parent. Right-click a top-level project you manage and choose **Move to Workspace** or **Make
-  Private** to change it later — its subprojects move with it. Projects you created before this
-  version stay as they were.
-- **Project notices fold into one bar.** Instead of a stack of banners, one slim bar under the
-  toolbar says how many notices the project has — *2 constraints · 1 alert*. Click it to read
-  them, click again to fold it. Inwardis remembers your choice per project, and a notice added
-  since you last opened the bar is marked **new**.
-
-### Fixed
-
-- **A share on a project opens its subprojects.** Someone you shared a project with saw its
-  subprojects but could not open them ("The project could not be loaded"). They now open, with
-  the access the share gives.
-- **Invitations work with self-registration turned off.** The invited address can register from
-  the invitation link and gets the invited role; nobody else can.
-- **Real-time collaboration connects on an installed server.** 1.0.25 still sent the browser to an
-  address on the viewer's own computer; it now connects through your server's `/collab` route.
+Changes to projects and sharing, invitations, real-time collaboration and project notices.
 
 ## [1.0.26] - 2026-11-26
 
