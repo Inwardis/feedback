@@ -9,33 +9,33 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.29] - 2026-11-28
+## [1.0.30] - 2026-11-28
 
-What changed since 1.0.28: agents get answers they can hold, a batch of changes names its view
-once, the issues template links across projects, and agents learn the allowed values and near-miss
-ids from the answers themselves.
+What changed since 1.0.29: an agent can attach files from its own machine, elements it creates
+land in tidy rows, the issues template can say one item refines another, and agents working side
+by side are told about each other.
 
 Areas: agents over MCP, the issues template
 
 ### Added
 
-- **Answers an agent can hold.** A batch of changes can answer with just the new ids and any
-  warnings — about a third of the size it was — and reading a large project now comes in pages that
-  fit an agent's limits, with a cursor to continue, instead of one answer of several hundred
-  thousand characters.
-- **A batch names its view once.** Agents can give a view (or a project) at the top of a batch of
-  changes, and every new element in it is placed there, instead of repeating it in every step.
-- **Issues link across projects.** In the issues template, *relates to*, *depends on*, *resolves*,
-  *supersedes* and *violates* can point at an item in another project — a task in one subproject to
-  a decision in a sibling — and keep what the line means.
-- **The allowed values come with the read.** When an agent reads a project it also gets the allowed
-  values and defaults of every status, priority and severity, per type, before it writes one.
+- **Attach a file from the agent's machine.** An agent can ask for a one-time upload link for one
+  file on one element and send a report, archive or image there with a single command — no API key
+  in the shell, the link works once and expires after fifteen minutes, and the attachment is
+  recorded as the agent's.
+- **Refines.** The issues template has a *refines* line beside *supersedes*, for an item that
+  details or narrows another without replacing it — across projects too.
+- **Agents side by side.** When an agent changes something another person or agent changed in the
+  last few minutes, it is told who; and the change history can be read per person or agent.
 
 ### Changed
 
-- **An id typed short says what it nearly named.** An id with only its first part kept and the rest
-  filled with zeros now answers which item the agent probably meant, when exactly one item it can
-  open matches.
+- **New elements land in rows.** Elements an agent creates without a position are placed in rows
+  under their parent, never on top of another box, instead of in one long column.
+
+## [1.0.29] - 2026-11-28
+
+Changes to agents over MCP and the issues template.
 
 ## [1.0.28] - 2026-11-27
 
