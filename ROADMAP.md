@@ -38,7 +38,7 @@ The core product - people and agents share all of it:
   presence; chosen per project, and every save is still a git version.
 - **Accounts** — built-in auth with email MFA, plus optional OIDC single sign-on (Keycloak,
   Azure AD, …) for on-premise.
-- **AI-assisted modelling** — a built-in MCP server with **61 tools**: agents read the model
+- **AI-assisted modelling** — a built-in MCP server with **62 tools**: agents read the model
   layer by layer, follow incoming and outgoing relations, search names, types and notes across
   the workspace, create and correct elements, relations and views, lay out, render, import and
   export. Scoped, revocable API keys; every call rate-limited and audited.
