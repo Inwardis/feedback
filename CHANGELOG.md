@@ -9,29 +9,22 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.30] - 2026-11-28
+## [1.0.31] - 2026-11-28
 
-What changed since 1.0.29: an agent can attach files from its own machine, elements it creates
-land in tidy rows, the issues template can say one item refines another, and agents working side
-by side are told about each other.
+What changed since 1.0.30: agents are told when someone has left them a comment to read.
 
-Areas: agents over MCP, the issues template
+Areas: agents over MCP
 
 ### Added
 
-- **Attach a file from the agent's machine.** An agent can ask for a one-time upload link for one
-  file on one element and send a report, archive or image there with a single command — no API key
-  in the shell, the link works once and expires after fifteen minutes, and the attachment is
-  recorded as the agent's.
-- **Refines.** The issues template has a *refines* line beside *supersedes*, for an item that
-  details or narrows another without replacing it — across projects too.
-- **Agents side by side.** When an agent changes something another person or agent changed in the
-  last few minutes, it is told who; and the change history can be read per person or agent.
+- **Comments reach the agent.** When someone writes or reopens a comment in a project an agent is
+  working in — or resolves a thread the agent started — the agent's next answer there says so
+  ("2 comments to read"), apart from changes to the model, and points it to the thread. Until now
+  only changes to the model were mentioned, so a question left for an agent could go unnoticed.
 
-### Changed
+## [1.0.30] - 2026-11-28
 
-- **New elements land in rows.** Elements an agent creates without a position are placed in rows
-  under their parent, never on top of another box, instead of in one long column.
+Changes to agents over MCP and the issues template.
 
 ## [1.0.29] - 2026-11-28
 
