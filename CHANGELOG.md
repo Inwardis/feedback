@@ -9,31 +9,37 @@ summary of the areas it changed. This file is what the downloads page, the relea
 the in-product *What's New* page show, and it is written for the people who install the
 product, not for its developers.
 
-## [1.0.28] - 2026-11-27
+## [1.0.29] - 2026-11-28
 
-What changed since 1.0.27: the explorer filters by any property your templates define, filters can
-be saved and shared, and agents can ask for elements by property value.
+What changed since 1.0.28: agents get answers they can hold, a batch of changes names its view
+once, the issues template links across projects, and agents learn the allowed values and near-miss
+ids from the answers themselves.
 
-Areas: explorer filters, saved filters, agents over MCP
+Areas: agents over MCP, the issues template
 
 ### Added
 
-- **Filter the explorer by property.** The new **funnel** in the explorer header opens a filter
-  panel beside the explorer. Add any field your templates declare — status, severity, owner,
-  dates, numbers — grouped by template, and choose values. Each value shows how many elements
-  carry it before you pick it. Apply, and the tree shows only the matching elements and the
-  parents that lead to them; a small pill above the tree names the filter and how many matched.
-  The filter follows changes as other people make them, and is remembered next time.
-- **Saved filters.** Name a filter (*Open findings*) and it is kept with the project: everyone who
-  can open the project picks it from the funnel, and its subprojects are offered it too. Editors
-  can rename and delete them. Saved filters travel with the project when it is published to git.
-- **Start a filter from a value.** A small funnel next to a field in the properties panel, or
-  **Filter Explorer** on a box's right-click menu, shows every element with that value.
-- **Share a filtered view.** The filter is part of the page address, so **Copy Link** opens the
-  same filtered tree for whoever you send it to.
-- **Agents ask by property value.** Over MCP, `search_elements` takes `where` conditions (or a
-  saved filter by name), so "the open findings" is an exact answer rather than a text search for
-  the word *open*; `update_project` can manage a project's saved filters.
+- **Answers an agent can hold.** A batch of changes can answer with just the new ids and any
+  warnings — about a third of the size it was — and reading a large project now comes in pages that
+  fit an agent's limits, with a cursor to continue, instead of one answer of several hundred
+  thousand characters.
+- **A batch names its view once.** Agents can give a view (or a project) at the top of a batch of
+  changes, and every new element in it is placed there, instead of repeating it in every step.
+- **Issues link across projects.** In the issues template, *relates to*, *depends on*, *resolves*,
+  *supersedes* and *violates* can point at an item in another project — a task in one subproject to
+  a decision in a sibling — and keep what the line means.
+- **The allowed values come with the read.** When an agent reads a project it also gets the allowed
+  values and defaults of every status, priority and severity, per type, before it writes one.
+
+### Changed
+
+- **An id typed short says what it nearly named.** An id with only its first part kept and the rest
+  filled with zeros now answers which item the agent probably meant, when exactly one item it can
+  open matches.
+
+## [1.0.28] - 2026-11-27
+
+Changes to explorer filters, saved filters and agents over MCP.
 
 ## [1.0.27] - 2026-11-26
 
